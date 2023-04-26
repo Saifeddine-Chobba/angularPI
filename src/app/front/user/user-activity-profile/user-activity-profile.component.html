@@ -1,25 +1,4 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>About</title>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta content="" name="keywords">
-  <meta content="" name="description">
-  <!-- Favicon -->
-  <link href="img/favicon.ico" rel="icon">
 
-  <!-- Google Web Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-
-  <!-- Icon Font Stylesheet -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-</head>
-<body>
 <app-user-navbar></app-user-navbar>
 
 <!-- Page Header Start -->
@@ -29,75 +8,34 @@
   </div>
 </div>
 <!-- Page Header End -->
-
-  <div class="container">
-    <div class="grid second-nav">
-      <div class="column-xs-12">
-        <nav>
-          <ol class="breadcrumb-list">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item"><a href="#">Household Plants</a></li>
-            <li class="breadcrumb-item active">Bonsai</li>
-          </ol>
-        </nav>
+<div class="container">
+  <div class="grid product">
+    <div class="column-xs-12 column-md-7">
+      <div class="product-gallery">
+        <div class="product-image">
+          <img class="active" src="https://source.unsplash.com/W1yjvf5idqA">
+        </div>
+        <ul class="image-list">
+          <li class="image-item"><img src="https://source.unsplash.com/W1yjvf5idqA" ></li>
+          <li class="image-item"><img src="https://source.unsplash.com/VgbUxvW3gS4"></li>
+          <li class="image-item"><img src="https://source.unsplash.com/5WbYFH0kf_8"></li>
+        </ul>
       </div>
     </div>
-    <div class="grid product">
-      <div class="column-xs-12 column-md-7">
-        <div class="product-gallery">
+    <div class="column-xs-12 column-md-5">
+      <h1>activity name</h1>
+      <p-rating [(ngModel)]="selectedRating" [cancel]="false" (onRate)="onRate($event)"></p-rating>
+      <div class="description" style="line-height: 50px">
+        <h4 style="display: inline">Average Rating: </h4> <span style="font-size: 20px">4.6</span> <br>
 
 
 
-        </div>
-      </div>
-      <div class="column-xs-12 column-md-5">
-        <h1>Bonsai</h1>
-        <h2>$19.99</h2>
-        <div class="description">
-          <p>The purposes of bonsai are primarily contemplation for the viewer, and the pleasant exercise of effort and ingenuity for the grower.</p>
-          <p>By contrast with other plant cultivation practices, bonsai is not intended for production of food or for medicine. Instead, bonsai practice focuses on long-term cultivation and shaping of one or more small trees growing in a container.</p>
-        </div>
-        <button class="add-to-cart">Add To Cart</button>
-      </div>
-    </div>
-    <div  class="grid related-products">
-      <div class="column-xs-12">
-        <h3>You may also like</h3>
-      </div>
-      <div class="column-xs-12 column-md-4">
-        <img src="https://source.unsplash.com/miziNqvJx5M">
-        <h4>Succulent</h4>
-        <p class="price">$19.99</p>
-      </div>
-      <div class="column-xs-12 column-md-4">
-        <img src="https://source.unsplash.com/2y6s0qKdGZg">
-        <h4>Terranium</h4>
-        <p class="price">$19.99</p>
-      </div>
-      <div class="column-xs-12 column-md-4">
-        <img src="https://source.unsplash.com/6Rs76hNbIWE">
-        <h4>Cactus</h4>
-        <p class="price">$19.99</p>
       </div>
     </div>
   </div>
 
+</div>
 <app-footer-front></app-footer-front>
 
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script>
-  console.log("hi");
-alert("hi");
-const activeImage = document.querySelector(".product-image .active");
-const productImages = document.querySelectorAll(".image-list img");
-
-function changeImage(e) {
-  activeImage.src = e.target.src;
-}
 
 
-productImages.forEach(image => image.addEventListener("click", changeImage));
-
-</script>
-</body>
-</html>

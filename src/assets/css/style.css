@@ -175,7 +175,7 @@
         position: relative;
         min-height: 450px;
     }
-    
+
     #header-carousel .carousel-item img {
         position: absolute;
         width: 100%;
@@ -475,6 +475,7 @@
 /*** Footer ***/
 .footer {
     color: #B0B9AE;
+
 }
 
 .footer .btn.btn-link {
@@ -501,3 +502,4 @@
     letter-spacing: 1px;
     box-shadow: none;
 }
+

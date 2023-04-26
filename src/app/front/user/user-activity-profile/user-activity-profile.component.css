@@ -1,5 +1,14 @@
-/* 12columns.css | Created by Katherine Kato | Released under the MIT license */
-/* GitHub: https://kathykato.github.io/12columns/ */
+
+
+@import "/src/assets/lib/animate/animate.css";
+@import "/src/assets/lib/lightbox/css/lightbox.css";
+@import "/src/assets/lib/owlcarousel/assets/owl.carousel.css";
+@import "/src/assets/lib/owlcarousel/assets/owl.theme.default.css";
+@import "/src/assets/lib/owlcarousel/assets/owl.theme.green.css";
+@import url('src/assets/css/bootstrap.min.css') ;
+@import "src/assets/css/style.css";
+
+
 .container {
   margin: auto;
   padding: 0 1rem;
@@ -564,37 +573,7 @@ nav li {
   margin: 2rem 0;
   padding: 1rem 0 0 0;
 }
-.add-to-cart {
-  position: relative;
-  display: inline-block;
-  background: #3e3e3f;
-  color: #fff;
-  border: none;
-  border-radius: 0;
-  padding: 1.25rem 2.5rem;
-  font-size: 1rem;
-  text-transform: uppercase;
-  cursor: pointer;
-  transform: translateZ(0);
-  transition: color 0.3s ease;
-  letter-spacing: 0.0625rem;
-}
-.add-to-cart:hover::before {
-  transform: scaleX(1);
-}
-.add-to-cart::before {
-  position: absolute;
-  content: '';
-  z-index: -1;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: #565657;
-  transform: scaleX(0);
-  transform-origin: 0 50%;
-  transition: transform 0.3s ease-out;
-}
+
 .container {
   margin: auto;
   padding: 0 1rem;
@@ -691,4 +670,45 @@ footer {
     opacity: 1;
   }
 }
+
+:host
+
+::ng-deep   .add-to-cart {
+    position: relative;
+    display: inline-block;
+    background: #3e3e3f;
+    color: #fff;
+    height:70px;
+  width:150px;
+    border: none;
+    border-radius: 0;
+    padding: 7px;
+    font-size: 15px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transform: translateZ(0);
+    transition: color 0.3s ease;
+    letter-spacing: 0.0625rem;
+  }
+:host
+
+::ng-deep   .add-to-cart:hover::before {
+    transform: scaleX(1);
+  }
+:host
+
+::ng-deep   .add-to-cart::before {
+    position: absolute;
+    content: '';
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #565657;
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    transition: transform 0.3s ease-out;
+  }
+
 

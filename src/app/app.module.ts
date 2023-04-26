@@ -49,7 +49,16 @@ import { OwnerActivityProfileComponent } from './front/camping-center-owner/owne
 import { OwnerComplaintProfileComponent } from './front/camping-center-owner/owner-complaint-profile/owner-complaint-profile.component';
 import { AccountComponent } from './front/common-component/account/account.component';
 import {ChangeImageDirective} from "./change-image.directive";
-
+import { GalleriaModule } from 'primeng/galleria';
+import { RatingModule } from 'primeng/rating';
+import {FormsModule} from "@angular/forms";
+import { DialogModule } from 'primeng/dialog';
+import {ButtonModule} from "primeng/button";
+import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-browser/animations";
+import { MapComponent } from './front/common-component/map/map.component';
+import { ModalComponent } from './front/common-component/modal/modal.component';
+import { DashboardComponent } from './back/admin/dashboard/dashboard.component';
+import { LoginComponent } from './Login/login/login.component';
 
 @NgModule({
   declarations: [
@@ -99,11 +108,22 @@ import {ChangeImageDirective} from "./change-image.directive";
     UserComplaintProfileComponent,
     OwnerActivityProfileComponent,
     OwnerComplaintProfileComponent,
-    AccountComponent
+    AccountComponent,
+    MapComponent,
+    ModalComponent,
+    DashboardComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    GalleriaModule,
+    RatingModule,
+    FormsModule,
+    DialogModule,
+    ButtonModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

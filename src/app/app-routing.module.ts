@@ -37,9 +37,13 @@ import {
 } from "./front/user/user-reservation-profile/user-reservation-profile.component";
 import {UserShopComponent} from "./front/user/user-shop/user-shop.component";
 import {UserComplaintsComponent} from "./front/user/user-complaints/user-complaints.component";
+import {DashboardComponent} from "./back/admin/dashboard/dashboard.component";
+import {LoginComponent} from "./Login/login/login.component";
 
 
 const routes: Routes = [
+  //login
+  {path: 'login' , component: LoginComponent},
   //camping center owner (front)
   { path: 'owner/profile', component: OwnerProfileComponent },
   { path: 'owner/about', component: OwnerAboutComponent },
@@ -76,7 +80,8 @@ const routes: Routes = [
   {path : 'user/reservationprofile' , component: UserReservationProfileComponent},
   {path: 'user/shop' , component: UserShopComponent},
   {path : 'user/complaints' , component: UserComplaintsComponent},
-
+  //admin
+  {path: 'back/admin/dashboard' , component: DashboardComponent}
 
 ];
 @NgModule({

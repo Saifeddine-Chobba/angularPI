@@ -1,3 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
 @import "primeng/resources/themes/lara-light-blue/theme.css";
 @import "primeng/resources/primeng.css";
+
+
+
+
+@import "/src/assets/lib/animate/animate.css";
+@import "/src/assets/lib/lightbox/css/lightbox.css";
+@import "/src/assets/lib/owlcarousel/assets/owl.carousel.css";
+@import "/src/assets/lib/owlcarousel/assets/owl.theme.default.css";
+@import "/src/assets/lib/owlcarousel/assets/owl.theme.green.css";
+
+@import url('src/assets/css/bootstrap.min.css') ;
+@import "src/assets/css/style.css";
+
+html  {
+  padding : 0;
+  margin: 0 ;
+}
+body  {
+  padding : 0;
+  margin: 0 ;
+  width: 100%;
+}
+
