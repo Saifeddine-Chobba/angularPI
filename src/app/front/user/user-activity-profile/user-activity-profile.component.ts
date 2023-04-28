@@ -1,5 +1,6 @@
-import {Component, OnInit, Renderer2, ElementRef, ViewChild} from '@angular/core';
+import {Component, OnInit, Renderer2, ElementRef, ViewChild, Inject} from '@angular/core';
 import {MapComponent} from "../../common-component/map/map.component";
+import {DOCUMENT} from "@angular/common";
 
 @Component({
   selector: 'app-user-activity-profile',
@@ -12,7 +13,7 @@ export class UserActivityProfileComponent implements OnInit {
   @ViewChild(MapComponent) map !: MapComponent;
   visibleBooking : boolean = false;
 
-  constructor(private renderer: Renderer2, private el: ElementRef) {
+  constructor(private renderer: Renderer2, private el: ElementRef , @Inject(DOCUMENT) private document: Document) {
     this.selectedRating = 0;
   }
 
@@ -39,6 +40,7 @@ export class UserActivityProfileComponent implements OnInit {
   showBooking() {
     this.visibleBooking = true;
   }
+
 
 
 }

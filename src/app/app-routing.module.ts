@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+import { BlankComponent } from './layouts/blank/blank.component';
+import { FullComponent } from './layouts/full/full.component';
+import {CommonModule} from "@angular/common";
+//front
 import {OwnerProfileComponent} from "./front/camping-center-owner/profile/profile.component";
 import {OwnerAboutComponent} from "./front/camping-center-owner/owner-about/owner-about.component";
 import {OwnerMyAccountComponent} from "./front/camping-center-owner/owner-my-account/owner-my-account.component";
@@ -37,13 +40,51 @@ import {
 } from "./front/user/user-reservation-profile/user-reservation-profile.component";
 import {UserShopComponent} from "./front/user/user-shop/user-shop.component";
 import {UserComplaintsComponent} from "./front/user/user-complaints/user-complaints.component";
-import {DashboardComponent} from "./back/admin/dashboard/dashboard.component";
-import {LoginComponent} from "./Login/login/login.component";
+
 
 
 const routes: Routes = [
-  //login
-  {path: 'login' , component: LoginComponent},
+  {
+    path: '',
+    component: FullComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: '/dashboard',
+        pathMatch: 'full',
+      },
+      {
+        path: 'dashboard',
+        loadChildren: () =>
+          import('./pages/pages.module').then((m) => m.PagesModule),
+      },
+      {
+        path: 'ui-components',
+        loadChildren: () =>
+          import('./pages/ui-components/ui-components.module').then(
+            (m) => m.UicomponentsModule
+          ),
+      },
+      {
+        path: 'extra',
+        loadChildren: () =>
+          import('./pages/extra/extra.module').then((m) => m.ExtraModule),
+      },
+    ],
+  },
+  {
+    path: '',
+    component: BlankComponent,
+    children: [
+      {
+        path: 'authentication',
+        loadChildren: () =>
+          import('./pages/authentication/authentication.module').then(
+            (m) => m.AuthenticationModule
+          ),
+      },
+    ],
+  },
   //camping center owner (front)
   { path: 'owner/profile', component: OwnerProfileComponent },
   { path: 'owner/about', component: OwnerAboutComponent },
@@ -79,16 +120,15 @@ const routes: Routes = [
   {path : 'user/product' , component: UserProductProfileComponent},
   {path : 'user/reservationprofile' , component: UserReservationProfileComponent},
   {path: 'user/shop' , component: UserShopComponent},
-  {path : 'user/complaints' , component: UserComplaintsComponent},
-  //admin
-  {path: 'back/admin/dashboard' , component: DashboardComponent}
+  {path : 'user/complaints' , component: UserComplaintsComponent}
 
 ];
+
 @NgModule({
   imports: [
+    RouterModule.forRoot(routes),
     CommonModule, // Import the CommonModule here
-    RouterModule.forRoot(routes)
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

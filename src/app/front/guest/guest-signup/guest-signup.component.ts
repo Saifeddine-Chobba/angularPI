@@ -7,7 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GuestSignupComponent implements OnInit {
 
-  constructor() { }
+  script : HTMLScriptElement;
+  constructor() {
+    this.script = document.createElement(("script"));
+    this.script.src = "/src/assets/back/plugins/global/plugins.bundle.js";
+    document.body.appendChild(this.script);
+    this.script.src = "/src/assets/back/js/scripts.bundle.js";
+    document.body.appendChild(this.script);
+    this.script.src = "/src/assets/back/js/custom/authentication/sign-up/general.js";
+    document.body.appendChild(this.script);
+
+  }
 
   ngOnInit(): void {
   }
