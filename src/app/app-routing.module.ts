@@ -50,7 +50,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: '/dashboard',
+        redirectTo: '/guest/home',
         pathMatch: 'full',
       },
       {

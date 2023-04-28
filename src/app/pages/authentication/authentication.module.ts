@@ -16,6 +16,7 @@ import { AuthenticationRoutes } from './authentication.routing';
 
 import { AppSideLoginComponent } from './login/login.component';
 import { AppSideRegisterComponent } from './register/register.component';
+import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
   imports: [
@@ -29,6 +30,7 @@ import { AppSideRegisterComponent } from './register/register.component';
     FormsModule,
     ReactiveFormsModule,
     TablerIconsModule.pick(TablerIcons),
+    MatSelectModule,
   ],
   declarations: [
     AppSideLoginComponent,

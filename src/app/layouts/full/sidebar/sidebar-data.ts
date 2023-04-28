@@ -10,57 +10,96 @@ export const navItems: NavItem[] = [
     route: '/dashboard',
   },
   {
-    navCap: 'Ui Components',
+    navCap: 'User Management',
   },
   {
-    displayName: 'Badge',
+    displayName: 'All Users',
     iconName: 'rosette',
-    route: '/ui-components/badge',
+    route: '/dashboard/users',
   },
   {
-    displayName: 'Chips',
+    displayName: 'Add User',
     iconName: 'poker-chip',
-    route: '/ui-components/chips',
+    route: '/dashboard/addUser',
   },
   {
-    displayName: 'Lists',
+    displayName: 'All Roles',
     iconName: 'list',
-    route: '/ui-components/lists',
+    route: '/dashboard/roles',
   },
   {
-    displayName: 'Menu',
+    displayName: 'Add Role',
     iconName: 'layout-navbar-expand',
-    route: '/ui-components/menu',
+    route: '/dashboard/addrole',
   },
   {
-    displayName: 'Tooltips',
-    iconName: 'tooltip',
-    route: '/ui-components/tooltips',
+    navCap: 'Campground Management',
   },
   {
-    navCap: 'Auth',
-  },
-  {
-    displayName: 'Login',
+    displayName: 'All Campgrounds',
     iconName: 'lock',
-    route: '/authentication/login',
+    route: '/dashboard/campgrounds',
   },
   {
-    displayName: 'Register',
+    displayName: 'Reservations',
     iconName: 'user-plus',
-    route: '/authentication/register',
+    route: '/dashboard/reservations',
   },
   {
-    navCap: 'Extra',
+    navCap: 'Activity Management',
   },
   {
-    displayName: 'Icons',
+    displayName: 'Activities',
+    iconName: 'user-plus',
+    route: '/dashboard/activities',
+  },
+  {
+    navCap: 'Shop Management',
+  },
+  {
+    displayName: 'Products',
     iconName: 'mood-smile',
-    route: '/extra/icons',
+    route: '/dashboard/products',
   },
   {
-    displayName: 'Sample Page',
+    displayName: 'Orders',
     iconName: 'aperture',
-    route: '/extra/sample-page',
+    route: '/dashboard/orders',
+  },
+  {
+    displayName: 'Suppliers',
+    iconName: 'aperture',
+    route: '/dashboard/suppliers',
+  },
+  {
+    displayName: 'Delivery Personnel',
+    iconName: 'aperture',
+    route: '/dashboard/delivery',
+  },
+  {
+    displayName: 'Deposits',
+    iconName: 'aperture',
+    route: '/dashboard/deposits',
+  },
+  {
+    displayName: 'Orders',
+    iconName: 'aperture',
+    route: '/dashboard/orders',
+  },
+  {
+    navCap: 'Forum Management',
+  },
+  {
+    navCap: 'Complaint Management ',
+  },
+  {
+    displayName: 'All Complaints',
+    iconName: 'aperture',
+    route: '/dashboard/complaints',
+  },
+  {
+    displayName: 'Sentiment Analysis',
+    iconName: 'aperture',
+    route: '/dashboard/sentiments',
   },
 ];

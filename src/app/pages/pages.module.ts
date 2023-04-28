@@ -9,9 +9,48 @@ import { NgApexchartsModule } from 'ng-apexcharts';
 import { TablerIconsModule } from 'angular-tabler-icons';
 import * as TablerIcons from 'angular-tabler-icons/icons';
 import { AppDashboardComponent } from './dashboard/dashboard.component';
+import {MyAccountComponent} from "./ManageUsers/my-account/my-account.component";
+import {AddUserComponent} from "./ManageUsers/add-user/add-user.component";
+import {EditUserComponent} from "./ManageUsers/edit-user/edit-user.component";
+import {AllUsersComponent} from "./ManageUsers/all-users/all-users.component";
+import {TableModule} from "primeng/table";
+import {ComplaintProfileComponent} from "./Activity+Complaints/complaint-profile/complaint-profile.component";
+import {AllComplaintsComponent} from "./Activity+Complaints/all-complaints/all-complaints.component";
+import {CampgroundProfileComponent} from "./campgrounds+reservations/campground-profile/campground-profile.component";
+import {AllCampgroundsComponent} from "./campgrounds+reservations/all-campgrounds/all-campgrounds.component";
+import {ActivityProfileComponent} from "./Activity+Complaints/activity-profile/activity-profile.component";
+import {AllActivitiesComponent} from "./Activity+Complaints/all-activities/all-activities.component";
+import {AllReservationsComponent} from "./campgrounds+reservations/all-reservations/all-reservations.component";
+import {
+  ReservationProfileComponent
+} from "./campgrounds+reservations/reservation-profile/reservation-profile.component";
+import {ButtonModule} from "primeng/button";
+import {RatingModule} from "primeng/rating";
+import {TagModule} from "primeng/tag";
 
 @NgModule({
-  declarations: [AppDashboardComponent],
+  declarations: [
+    AppDashboardComponent,
+    //user
+    MyAccountComponent,
+    AddUserComponent,
+    EditUserComponent,
+    AllUsersComponent,
+    //complainthandler
+    ComplaintProfileComponent,
+    AllComplaintsComponent,
+    //campgroundmanager
+    CampgroundProfileComponent,
+    AllCampgroundsComponent,
+    //activity
+    ActivityProfileComponent,
+    AllActivitiesComponent,
+    //reservation manager
+    AllReservationsComponent,
+    ReservationProfileComponent,
+    //shopmanager
+    //forum manager
+  ],
   imports: [
     CommonModule,
     MaterialModule,
@@ -19,6 +58,10 @@ import { AppDashboardComponent } from './dashboard/dashboard.component';
     NgApexchartsModule,
     RouterModule.forChild(PagesRoutes),
     TablerIconsModule.pick(TablerIcons),
+    TableModule,
+    ButtonModule,
+    RatingModule,
+    TagModule
   ],
   exports: [TablerIconsModule],
 })

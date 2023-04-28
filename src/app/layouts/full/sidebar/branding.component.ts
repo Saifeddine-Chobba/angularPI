@@ -4,11 +4,12 @@ import { Component } from '@angular/core';
   selector: 'app-branding',
   template: `
     <div class="branding">
-      <a href="/">
+      <a href="/dashboard">
         <img
-          src="./assets/images/logos/dark-logo.svg"
+          src="./assets/images/logos/campside-logo.png"
           class="align-middle m-2"
           alt="logo"
+          style="height: 80px ; width:150px"
         />
       </a>
     </div>

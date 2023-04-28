@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
+import {Component, Inject, OnInit} from '@angular/core';
+import {DOCUMENT} from "@angular/common";
 
 @Component({
   selector: 'app-navbar-owner',
@@ -8,13 +8,27 @@ import {Router} from "@angular/router";
 })
 export class OwnerNavbarComponent implements OnInit {
 
-  constructor(private router : Router) { }
+  constructor(@Inject(DOCUMENT) private document: Document) { }
 
   ngOnInit(): void {
-  }
+    //lazy load
+    const head = this.document.getElementsByTagName('head')[0];
 
-  goToAccount(){
-    this.router.navigate(["/owner/myaccount"])
-  }
+    let themeLink = this.document.getElementById(
+      'client-theme'
+    ) as HTMLLinkElement;
+    if (themeLink) {
+      themeLink.href = "./../../../front.css";
+    } else {
+      const style = this.document.createElement('link');
+      style.id = 'client-theme';
+      style.rel = 'stylesheet';
+      style.href = `${"./../../../front.css"}`;
 
+
+      head.appendChild(style);
+    }
+
+
+  }
 }

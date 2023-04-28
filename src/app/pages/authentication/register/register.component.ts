@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
   templateUrl: './register.component.html',
 })
 export class AppSideRegisterComponent {
+  roles = ["role1"]; //hedheya array fi wostou roles aaml fct getRoles tejbedlik roles mel base
+  selectedRole : String = "hedhia badalha type role baad ma taaml model role w aamleleha initialisation "
   constructor(private router: Router) {}
 
   form = new FormGroup({
