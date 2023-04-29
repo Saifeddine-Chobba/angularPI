@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  backendUrlPost:"http://localhost:8089/campside/post",
+  backendUrlReact:"http://localhost:8089/campside/reaction"
 };
 
 /*

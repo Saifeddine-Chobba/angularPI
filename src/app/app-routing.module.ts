@@ -39,6 +39,7 @@ import {UserShopComponent} from "./front/user/user-shop/user-shop.component";
 import {UserComplaintsComponent} from "./front/user/user-complaints/user-complaints.component";
 import {DashboardComponent} from "./back/admin/dashboard/dashboard.component";
 import {LoginComponent} from "./Login/login/login.component";
+import {ForumComponent} from "./front/forum/forum.component";
 
 
 const routes: Routes = [
@@ -80,8 +81,11 @@ const routes: Routes = [
   {path : 'user/reservationprofile' , component: UserReservationProfileComponent},
   {path: 'user/shop' , component: UserShopComponent},
   {path : 'user/complaints' , component: UserComplaintsComponent},
+  {path:'forum',component:ForumComponent},
+
   //admin
   {path: 'back/admin/dashboard' , component: DashboardComponent}
+
 
 ];
 @NgModule({
