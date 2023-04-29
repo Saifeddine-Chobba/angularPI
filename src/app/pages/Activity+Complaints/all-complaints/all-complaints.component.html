@@ -1,1 +1,35 @@
-<p>all-complaints works!</p>
+<div class="title">
+  <span>Complaints List</span>
+</div>
+<br>
+<br>
+<br>
+<div class="row" style="align-content: center;padding-left: 15%;">
+<p-table [value]="complaints">
+  <ng-template pTemplate="header">
+    <tr>
+
+      <th>Type</th>
+      <th>Username</th>
+      <th>Date</th>
+      <th>Description</th>
+      <th>Response</th>
+      <th>Status</th>
+
+      <th>Sentiment</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-complaint>
+    <tr>
+
+      <td>{{complaint.typeComplaint}}</td>
+      <td>{{complaint.username}}</td>
+      <td>{{complaint.dateComplaint | date }}</td>
+      <td>{{complaint.description}}</td>
+      <td>{{complaint.response}}</td>
+      <td>{{complaint.status}}</td>
+      <td>{{complaint.sentiment}}</td>
+    </tr>
+  </ng-template>
+</p-table>
+</div>

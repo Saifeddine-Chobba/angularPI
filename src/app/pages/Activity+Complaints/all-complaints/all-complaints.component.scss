@@ -1,0 +1,25 @@
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color :#5d5d91;
+  color: white;
+  font-size: 18px !important;
+}
+td
+{
+  font-size: 15px;
+}
+.title {
+  text-align: center;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 3em;
+}

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { TableModule } from 'primeng/table';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -84,6 +85,8 @@ import {ButtonModule} from "primeng/button";
 import {RatingModule} from "primeng/rating";
 import {ModalFrontComponent} from "./front/common-component/modal/modal.component";
 
+import { MatTableModule } from '@angular/material/table';
+import { SentimentAnalysisComponent } from './pages/Activity+Complaints/sentiment-analysis/sentiment-analysis.component';
 
 
 
@@ -142,7 +145,8 @@ import {ModalFrontComponent} from "./front/common-component/modal/modal.componen
     OwnerComplaintProfileComponent,
     AccountComponent,
     MapComponent,
-    ModalFrontComponent
+    ModalFrontComponent,
+    SentimentAnalysisComponent
 
 
   ],
@@ -155,7 +159,8 @@ import {ModalFrontComponent} from "./front/common-component/modal/modal.componen
     ReactiveFormsModule,
     MaterialModule,
     TablerIconsModule.pick(TablerIcons),
-
+    MatTableModule,
+    TableModule,
     GalleriaModule,
     RatingModule,
     DialogModule,

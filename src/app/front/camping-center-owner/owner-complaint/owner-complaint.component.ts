@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/services/Data.service';
 
 @Component({
   selector: 'app-owner-complaint',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OwnerComplaintComponent implements OnInit {
 
-  constructor() { }
+  constructor ( private dataService : DataService) { }
+  complaints : any;
 
   ngOnInit(): void {
+    this.getMyComplaints()
+  }
+  // Retrieve All complaints (ki tzid user / badel el fel api ab3th user)
+  //  getMyComplaints(userID) =>
+  getMyComplaints() {
+    this.dataService.getAllComplaints().subscribe((data) => {
+      this.complaints = data;
+      console.log(data);
+
+    });
   }
 
 }

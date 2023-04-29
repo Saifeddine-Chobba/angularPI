@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-activities',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserActivitiesComponent implements OnInit {
 
-  constructor() { }
+  constructor( private router :Router) { }
 
   ngOnInit(): void {
   }
 
+  navigateToPage() {
+    this.router.navigate(['/user/campgrounds']);
+  }
 }

@@ -1,1 +1,41 @@
-<p>sentiment-analysis works!</p>
+<div class="row">
+  <div class="title">
+    <span>Complaints per Service : </span>
+  </div>
+  <br>
+  <br>
+  <br>
+<div class="chart-container">
+  <div class="chart" *ngFor="let item of serviceListResult">
+    <div class="key">{{ item.key }}</div>
+    <div class="bar" [style.width.%]="item.value"></div>
+    <div class="value">{{ item.value }}</div>
+  </div>
+</div>
+</div>
+<br> <br> <br>
+<div class="row">
+
+  <div class="title">
+    <span>Sentiment per service : </span>
+  </div>
+  <br>
+  <br>
+  <br>
+  <table class="table table-striped table-bordered">
+    <thead table-dark >
+      <tr>
+        <th> <span>Service </span></th>
+        <th><span>Sentiment </span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of sentimentData">
+        <td>{{ item[0] }}</td>
+        <td>{{ item[1] }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+</div>

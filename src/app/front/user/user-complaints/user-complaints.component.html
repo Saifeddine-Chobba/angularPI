@@ -12,39 +12,35 @@
 
 
 <div class="containertab">
+  <table class="table table-striped table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Type</th>
+        <th>Username</th>
+        <th>Date</th>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Sentiment</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let complaint of complaints">
+        <td>{{ complaint.idComplaint }}</td>
+        <td>{{ complaint.typeComplaint }}</td>
+        <td>{{ complaint.username }}</td>
+        <td>{{ complaint.dateComplaint | date }}</td>
+        <td>{{ complaint.description }}</td>
+        <td>
+          <span>{{ complaint.status }}</span>
+        </td>
 
-  <div class="tab">
-    <div class="tabheader">
-      <div class="tabheader__item"><a id="name" class="filter__link" >Name</a></div>
-      <div class="tabheader__item"><a id="wins" class="filter__link filter__link--number" >Wins</a></div>
-      <div class="tabheader__item"><a id="draws" class="filter__link filter__link--number" >Draws</a></div>
-      <div class="tabheader__item"><a id="losses" class="filter__link filter__link--number" >Losses</a></div>
-      <div class="tabheader__item"><a id="total" class="filter__link filter__link--number" >Total</a></div>
-    </div>
-    <div class="tabcontent">
-      <div class="tabrow">
-        <div class="tabdata">Tom</div>
-        <div class="tabdata">2</div>
-        <div class="tabdata">0</div>
-        <div class="tabdata">1</div>
-        <div class="tabdata">5</div>
-      </div>
-      <div class="tabrow">
-        <div class="tabdata">Dick</div>
-        <div class="tabdata">1</div>
-        <div class="tabdata">1</div>
-        <div class="tabdata">2</div>
-        <div class="tabdata">3</div>
-      </div>
-      <div class="tabrow">
-        <div class="tabdata">Harry</div>
-        <div class="tabdata">0</div>
-        <div class="tabdata">2</div>
-        <div class="tabdata">2</div>
-        <div class="tabdata">2</div>
-      </div>
-    </div>
-  </div>
+        <td>
+          <span>{{ complaint.sentiment }}</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
 
