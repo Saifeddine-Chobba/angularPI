@@ -1,0 +1,26 @@
+
+<div class="containertab">
+  <p-table [value]="products" [tableStyle]="{'min-width': '60rem'}" styleClass="tab" >
+
+    <ng-template pTemplate="header" class="tabheader">
+      <tr>
+        <th class="tabheader__item">Name</th>
+        <th class="tabheader__item">Image</th>
+        <th class="tabheader__item">Price</th>
+        <th class="tabheader__item">Category</th>
+        <th class="tabheader__item">Reviews</th>
+        <th class="tabheader__item">Status</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-product class="tabcontent">
+      <tr class="tabrow">
+        <td class="tabdata">dfg</td>
+        <td class="tabdata"><img [src]="'https://primefaces.org/cdn/primeng/images/demo/product/1'"  width="100" class="shadow-4" /></td>
+        <td class="tabdata">dfg</td>
+        <td class="tabdata">dfg</td>
+        <td class="tabdata">dfg</td>
+        <td class="tabdata">dfgfdg</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

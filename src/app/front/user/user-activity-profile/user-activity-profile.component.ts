@@ -1,0 +1,46 @@
+import {Component, OnInit, Renderer2, ElementRef, ViewChild, Inject} from '@angular/core';
+import {MapComponent} from "../../common-component/map/map.component";
+import {DOCUMENT} from "@angular/common";
+
+@Component({
+  selector: 'app-user-activity-profile',
+  templateUrl: './user-activity-profile.component.html',
+  styleUrls: [    './user-activity-profile.component.css' ]
+})
+export class UserActivityProfileComponent implements OnInit {
+
+  selectedRating: number;
+  @ViewChild(MapComponent) map !: MapComponent;
+  visibleBooking : boolean = false;
+
+  constructor(private renderer: Renderer2, private el: ElementRef , @Inject(DOCUMENT) private document: Document) {
+    this.selectedRating = 0;
+  }
+
+  ngOnInit(): void {
+    const activeImageCampProf = this.el.nativeElement.querySelector(".product-image .active");
+    const productImagesCampProf = this.el.nativeElement.querySelectorAll(".image-list img");
+
+    const changeImage = (e: MouseEvent): any => {
+      activeImageCampProf.src = (e.target as HTMLImageElement).src;
+    };
+
+    productImagesCampProf.forEach((image: HTMLImageElement) => image.addEventListener('click', changeImage));
+  }
+
+  public onRate(event: any) : void {
+    this.selectedRating = event.value;
+    console.log("Selected rating: " + this.selectedRating);
+  }
+
+  showMap() {
+    this.map.visible = true;
+  }
+
+  showBooking() {
+    this.visibleBooking = true;
+  }
+
+
+
+}
