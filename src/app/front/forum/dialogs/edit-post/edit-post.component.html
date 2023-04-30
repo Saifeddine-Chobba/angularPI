@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>Edit post content </h1>
+<div mat-dialog-content>
+
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Editing</mat-label>
+      <textarea [(ngModel)]="editedContent" matInput placeholder="Enter you new content here"name="editedContent"></textarea>
+    </mat-form-field>
+
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close="">Close</button>
+  <button (click)="saveEditedContent()" mat-button style="background-color: #4CAF50">Confirm</button>
+
+</div>

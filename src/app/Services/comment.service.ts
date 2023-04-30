@@ -18,7 +18,7 @@ export class CommentService {
     return this.httpClient.get<Comment>("http://localhost:8089/campside/commment/get-commnets/"+idPost)
   }
 
-  addComment(comment: Comment, idUser: number | undefined, idPost: number | undefined):Observable<any>{
+  addComment(comment: Post, idUser: number , idPost: number):Observable<any>{
     return this.httpClient.post("http://localhost:8089/campside/commment/add-assing-comment"+"/"+idUser+"/"+idPost,comment);
 
   }

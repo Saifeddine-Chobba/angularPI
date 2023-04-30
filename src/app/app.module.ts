@@ -67,6 +67,14 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatMenuModule} from "@angular/material/menu";
+import {MatIconModule} from "@angular/material/icon";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import { MypostsComponent } from './front/forum/myposts/myposts.component';
+import {MatTableModule} from "@angular/material/table";
+import {MatSortModule} from "@angular/material/sort";
+import { EditPostComponent } from './front/forum/dialogs/edit-post/edit-post.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import { CommentsComponent } from './front/forum/dialogs/comments/comments.component';
 
 @NgModule({
   declarations: [
@@ -122,25 +130,35 @@ import {MatMenuModule} from "@angular/material/menu";
     DashboardComponent,
     LoginComponent,
     ForumComponent,
-    ForumHeaderComponent
+    ForumHeaderComponent,
+    MypostsComponent,
+    EditPostComponent,
+    CommentsComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        GalleriaModule,
-        RatingModule,
-        FormsModule,
-        DialogModule,
-        ButtonModule,
-        BrowserAnimationsModule,
-        NoopAnimationsModule,
-        HttpClientModule,
-        MatCardModule,
-        MatButtonModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatMenuModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    GalleriaModule,
+    RatingModule,
+    FormsModule,
+    DialogModule,
+    ButtonModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
+    HttpClientModule,
+    MatCardModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatMenuModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatTableModule,
+    MatSortModule,
+    MatDialogModule
+
+
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

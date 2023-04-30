@@ -1,4 +1,31 @@
+<app-user-navbar></app-user-navbar>
 <app-forum-header></app-forum-header>
+<div id="divupper">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span>My App</span>
+    </mat-toolbar-row>
+
+    <mat-toolbar-row>
+      <div class="example-button-row">
+        <button mat-raised-button color="primary">Sort by latest</button>
+        <button mat-raised-button color="warn">Most relevant</button>
+        <a mat-raised-button href="forum/myposts" target="_blank">My posts</a>
+      </div>
+    </mat-toolbar-row>
+
+    <mat-toolbar-row>
+      <mat-form-field class="field">
+        <input matInput placeholder="Search">
+        <button mat-button matSuffix>
+          <mat-icon>search</mat-icon>
+        </button>
+      </mat-form-field>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
+
+
 <div class="forum-page">
 
     <form>
@@ -19,7 +46,7 @@
 
     </form>
 
-  <div  *ngFor="let post of posts">
+  <div  *ngFor="let post of posts" id="posts">
     <mat-card class="example-card">
       <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
@@ -37,13 +64,11 @@
           <button mat-menu-item>
             <img src="assets/svg/thumbs-up-solid.svg" alt="My SVG Icon" >
           </button>
-          <button mat-menu-item>            <img src="assets/svg/heart-solid.svg" alt="My SVG Icon" >
+          <button mat-menu-item>
+            <img src="assets/svg/heart-solid.svg" alt="My SVG Icon" >
           </button>
-          <button mat-menu-item><img src="assets/svg/facebook-wow-logo-svgrepo-com_2
-.svg" alt="My SVG Icon" ></button>
-          <button mat-menu-item> <img src="assets/svg/face-sad-tear-solid
-.svg" alt="My SVG Icon" ></button>
-
+          <button mat-menu-item><img src="assets/svg/facebook-wow-logo-svgrepo-com_2.svg" alt="My SVG Icon" ></button>
+          <button mat-menu-item> <img src="assets/svg/face-sad-tear-solid.svg" alt="My SVG Icon" ></button>
           <button mat-menu-item><img src="assets/svg/face-angry-regular
 .svg" alt="My SVG Icon" ></button>
 
@@ -51,13 +76,15 @@
 .svg" alt="My SVG Icon" ></button>
 
         </mat-menu>
-        <button mat-button>Comment</button>
+        <button mat-button (click)="openDialog(post.id)">Comment</button>
+
       </mat-card-actions>
     </mat-card>
-    <button (click)="deletPost(post.idPost)">delete</button>
-  </div>
 
+  </div>
+  <app-footer-front></app-footer-front>
 </div>
+
 
 
 

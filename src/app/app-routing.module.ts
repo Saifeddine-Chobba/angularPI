@@ -40,6 +40,7 @@ import {UserComplaintsComponent} from "./front/user/user-complaints/user-complai
 import {DashboardComponent} from "./back/admin/dashboard/dashboard.component";
 import {LoginComponent} from "./Login/login/login.component";
 import {ForumComponent} from "./front/forum/forum.component";
+import {MypostsComponent} from "./front/forum/myposts/myposts.component";
 
 
 const routes: Routes = [
@@ -82,6 +83,8 @@ const routes: Routes = [
   {path: 'user/shop' , component: UserShopComponent},
   {path : 'user/complaints' , component: UserComplaintsComponent},
   {path:'forum',component:ForumComponent},
+  {path:'forum/myposts' ,component:MypostsComponent},
+
 
   //admin
   {path: 'back/admin/dashboard' , component: DashboardComponent}

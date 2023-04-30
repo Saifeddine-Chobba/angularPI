@@ -5,6 +5,8 @@ import {FormControl} from "@angular/forms";
 import {ReactsService} from "../../Services/reacts.service";
 import {ReactionTypeModel} from "../../Models/reactionType.model";
 import {Reaction} from "../../Models/react.model";
+import {MatDialog} from "@angular/material/dialog";
+import {CommentsComponent} from "./dialogs/comments/comments.component";
 
 @Component({
   selector: 'app-forum',
@@ -21,10 +23,18 @@ export class ForumComponent implements OnInit{
   password= new FormControl();
   posts: any[] | undefined
   newPost :Post=new Post(0,'',new Date(),false,false,null);
-  constructor(private postservice:PostsService, private reactService: ReactsService) {
-
+  constructor(private postservice:PostsService, private reactService: ReactsService,public dialog: MatDialog) {
   }
 
+  openDialog(postId: number) {
+    const dialogRef = this.dialog.open(CommentsComponent, {
+      data: { postId: postId }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 
 
   ngOnInit(): void {
@@ -58,8 +68,9 @@ export class ForumComponent implements OnInit{
       this.posts = Posts})
   }
 
+
   createPost() {
-    this.postservice.addPost(this.newPost).subscribe((response) => {
+    this.postservice.addPost(this.newPost,1,1).subscribe((response) => {
       console.log('Post created:', response);
       this.newPost = new Post(0, '', new Date(), false, false, null); // Reset the form
     });

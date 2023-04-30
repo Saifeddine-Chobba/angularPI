@@ -17,10 +17,15 @@
 }
 
 .forum-page{
-  width: 80%
+  width: 100%
 }
 .example-card {
   max-width: 800px;
+  min-width:800px;
+  margin:10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .example-header-image {
@@ -33,4 +38,36 @@ b{
 img{
   width: 24px;
   height: 24px;
+}
+.mat-toolbar-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-field {
+  margin-right: 10px;
+
+}
+.field{
+  margin-right: 0;
+  margin-bottom:-25px;
+
+  height: 100%;
+}
+#divupper{
+  width: 100%;
+}
+.example-button-row {
+  display: table-cell;
+  max-width: 600px;
+}
+
+.example-button-row .mat-mdc-button-base {
+  margin: 8px 8px 8px 0;
+}
+#posts{
+  display: flex;
+  justify-content: center;
+  widht:100%;
+
 }

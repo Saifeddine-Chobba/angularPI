@@ -1,12 +1,15 @@
+import {User} from "./user.model";
+import {ForumSection} from "./section.model";
+
 export class Post {
   idPost: number;
   content: string;
   datePost: Date;
   forbiddenWords: boolean;
   archived: boolean;
-  forumSection: any; // or create a ForumSection class if you have one
+  forumSection: ForumSection|null; // or create a ForumSection class if you have one
 
-  constructor(idPost: number, content: string, datePost: Date, forbiddenWords: boolean, archived: boolean, forumSection: any) {
+  constructor(idPost: number, content: string, datePost: Date, forbiddenWords: boolean, archived: boolean, forumSection: ForumSection|null) {
     this.idPost = idPost;
     this.content = content;
     this.datePost = datePost;

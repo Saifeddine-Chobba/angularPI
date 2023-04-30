@@ -16,20 +16,30 @@ export class PostsService {
 
     return this.httpClient.get<any>(environment.backendUrlPost+"/retrieve-all-posts");
   }
+  getpostsByuser(idUser :number):Observable<any> {
+
+    return this.httpClient.get<any>(environment.backendUrlPost+"/retrieve-posts-user/"+idUser);
+  }
 
   /*
   deletePost(idPost :number): any{
     return this.httpClient.delete(environment.backendUrlPost+"/delete-post/"+idPost.toString())
   }*/
 
-  addPost(post : Post):Observable<Post>{
+  addPost(post : Post,idUser:number,idSection:number):Observable<Post>{
     post.forbiddenWords = false;
     post.archived=false;
-    return this.httpClient.post<Post>(environment.backendUrlPost+"/add-post",post);
+    return this.httpClient.post<Post>(environment.backendUrlPost+"/add-assign-post/"+idUser+"/"+idSection,post);
   }
 
   deletePost(idPost:number):Observable<{}>{
     const url=environment.backendUrlPost+"/delete-post/"+idPost;
     return this.httpClient.delete(url);
+  }
+  editPost(post:Post){
+
+
+    return this.httpClient.post(environment.backendUrlPost+"/update-post",post);
+
   }
 }

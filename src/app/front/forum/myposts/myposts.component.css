@@ -1,0 +1,32 @@
+table {
+  width: 100%;
+
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  text-align: center;
+}
+.forum-page{
+  width: 100%;
+}
+mat-icon {
+  text-align: center;
+  cursor: pointer;
+  padding-left: 0px;
+  margin-left: 0px;
+  font-size: 1.22em;
+}
+.custom-dialog {
+  width: 500px;
+  height: 300px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 20px;
+}
+

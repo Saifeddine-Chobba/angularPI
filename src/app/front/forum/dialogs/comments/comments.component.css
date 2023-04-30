@@ -1,0 +1,27 @@
+#comments{
+  display: flex;
+  justify-content: center;
+  widht:100%;
+
+}
+
+.example-header-image {
+  background-image: url('https://cdn.anisearch.de/images/character/cover/39/39087_300.webp');
+  background-size: cover;
+}
+.example-card{
+  margin-bottom: 10px;
+}
+.mat-typography{
+  min-width: 500px;
+}
+.hover-image:hover {
+  opacity: 0.8; /* reduce opacity on hover */
+  cursor: pointer; /* change cursor to pointer on hover */
+}
+.hover-image {
+
+  margin-left: 20px;
+   width: 30px;
+  height: 30px;
+}
