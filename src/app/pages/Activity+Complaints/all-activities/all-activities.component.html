@@ -1,26 +1,120 @@
+<div class="title">
+  <span>Activities</span>
+</div>
+<br>
+<br>
+<br>
+<br>
 
 <div class="containertab">
-  <p-table [value]="products" [tableStyle]="{'min-width': '60rem'}" styleClass="tab" >
 
-    <ng-template pTemplate="header" class="tabheader">
-      <tr>
-        <th class="tabheader__item">Name</th>
-        <th class="tabheader__item">Image</th>
-        <th class="tabheader__item">Price</th>
-        <th class="tabheader__item">Category</th>
-        <th class="tabheader__item">Reviews</th>
-        <th class="tabheader__item">Status</th>
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-product class="tabcontent">
-      <tr class="tabrow">
-        <td class="tabdata">dfg</td>
-        <td class="tabdata"><img [src]="'https://primefaces.org/cdn/primeng/images/demo/product/1'"  width="100" class="shadow-4" /></td>
-        <td class="tabdata">dfg</td>
-        <td class="tabdata">dfg</td>
-        <td class="tabdata">dfg</td>
-        <td class="tabdata">dfgfdg</td>
-      </tr>
-    </ng-template>
-  </p-table>
+<table   class="table table-striped table-bordered" *ngIf="activitiesLoaded">
+  <thead>
+    <tr>
+      <th>Activity ID</th>
+      <th>Activity name</th>
+      <th>Activity type</th>
+      <th>Activity rating</th>
+      <th>Description</th>
+      <th>Action</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of allActivities">
+      <td>{{ item.idActivity }}</td>
+      <td>{{ item.nameActivity }}</td>
+      <td>{{ item.typeActivity}}</td>
+      <td>{{ item.ratingActivity}}</td>
+      <td>{{ item.description}}</td>
+
+      <td>
+        <button mat-icon-button (click)="editItem(item)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button (click)="removeActivity(item.idActivity)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
 </div>
+<br>
+<br>
+<div class="title">
+  <span>Add activity</span>
+</div>
+<br>
+<br>
+<br>
+
+<table   class="table table-striped table-bordered" *ngIf="activitiesLoaded">
+  <thead>
+    <tr>
+      <th>Activity name</th>
+      <th>Activity type</th>
+      <th>Activity rating</th>
+      <th>Description</th>
+
+    </tr>
+  </thead>
+
+
+
+  <tbody>
+    <tr>
+      <td><textarea placeholder="Activity Name"  [(ngModel)]="nameActivity"></textarea></td>
+      <td><textarea placeholder="Activity type"  [(ngModel)]="typeActivity"></textarea></td>
+      <td><textarea placeholder="Rating"  [(ngModel)]="ratingActivity"></textarea></td>
+      <td><textarea placeholder="Description" [(ngModel)]="descriptionActivity"></textarea></td>
+
+
+
+    </tr>
+  </tbody>
+  <div class="row" style="align-items: center;">
+  <button class="save" (click)="addActivity()">Save</button></div>
+</table>
+
+<br>
+<br>
+<div class="title">
+  <span>Modify activity</span>
+</div>
+<br>
+<br>
+<br>
+
+<table   class="table table-striped table-bordered" *ngIf="activitiesLoaded">
+  <thead>
+    <tr>
+      <th>AcitivyID</th>
+      <th>Activity name</th>
+      <th>Activity type</th>
+      <th>Activity rating</th>
+      <th>Description</th>
+
+    </tr>
+  </thead>
+
+
+
+  <tbody>
+    <tr>
+      <td><textarea placeholder="Activity ID"  [(ngModel)]="activityID"></textarea></td>
+
+      <td><textarea placeholder="Activity Name"  [(ngModel)]="nameActivity"></textarea></td>
+      <td><textarea placeholder="Activity type"  [(ngModel)]="typeActivity"></textarea></td>
+      <td><textarea placeholder="Rating"  [(ngModel)]="ratingActivity"></textarea></td>
+      <td><textarea placeholder="Description" [(ngModel)]="descriptionActivity"></textarea></td>
+
+
+
+    </tr>
+  </tbody>
+  <div class="row" style="align-items: center;">
+  <button class="save" (click)="EditActivity()">Save</button></div>
+</table>
+
+<!-- <button (click)="showModal()">Open Modal</button> -->

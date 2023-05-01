@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Complaint } from 'src/app/models/complaint';
+import { Mail } from 'src/app/models/mail';
 import { DataService } from 'src/app/services/Data.service';
 
 @Component({
@@ -24,7 +25,20 @@ export class UserFileComplaintComponent implements OnInit {
     this.dataService.addComplaint(complaint).subscribe((result) => {
       console.log('Complaint added successfully', result);
     });
+
+    this.sendComplaintemail();
+
   }
+
+  sendComplaintemail () {
+    const email : Mail = {recipient : "dhiaeddine.benarab@esprit.tn", msgBody : this.description , subject : 'complaint about ' +  this.typeComplaint +' service' }
+    this.dataService.sendEmail(email).subscribe((result) =>
+    {
+      console.log('Eamil sent successfully',result);
+    })
+ this.description = '';
+ this.typeComplaint = "";
+  };
 
 
 

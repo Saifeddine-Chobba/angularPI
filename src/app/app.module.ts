@@ -146,11 +146,12 @@ import { SentimentAnalysisComponent } from './pages/Activity+Complaints/sentimen
     AccountComponent,
     MapComponent,
     ModalFrontComponent,
-    SentimentAnalysisComponent
+    SentimentAnalysisComponent,
 
 
   ],
   imports: [
+
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

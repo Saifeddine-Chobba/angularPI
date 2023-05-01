@@ -46,12 +46,16 @@ export class DataService {
   return this.http.post<any> (this.apiUrl + 'Activity/addActivity' , activity)
  }
  deleteActivity (activityID : any) : Observable <any> {
-  return this.http.delete<any> (this.apiUrl +'Activity/deleteActivity' + activityID)
+  return this.http.delete<any> (this.apiUrl +'Activity/deleteActivity/' + activityID)
  }
- 
-// TODO Update API BACK
-//  updateActiviy( activityID : any ,activity : any) : Observable <any> {
-//   return this.http.post<any> (this.apiUrl + 'Activity/addActivity/' + activityID , activity)
-//  }
+
+ sendEmail(mail : any) : Observable <any> {
+  return this.http.post<any>(this.apiUrl + 'mail/sendMail' ,mail)
+
+ }
+
+ updateActiviy( activityID : any ,activity : any) : Observable <any> {
+  return this.http.post<any> (this.apiUrl + 'Activity/updateActivity/' + activityID , activity)
+ }
 
 }

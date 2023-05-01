@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/Data.service';
 import { Complaint } from 'src/app/models/complaint';
+import { Mail } from 'src/app/models/mail';
 
 @Component({
   selector: 'app-owner-file-complaint',
@@ -11,37 +12,31 @@ export class OwnerFileComplaintComponent implements OnInit {
 
   constructor(private dataService: DataService) { }
   typeComplaint: string;
-
   data: any;
-  // typeComplaint : string ;
-  // username : string ;
-  // description : string ;
-
   username : string ;
   description : string  ='' ;
 
   ngOnInit(): void {
-    // this.getMyComplaints();
-    // // this.addComplaint();
 
   }
-
-  // getMyComplaints() {
-  //   this.dataService.getAllComplaints().subscribe((data) => {
-  //     this.data = data;
-  //     console.log(data);
-
-  //   });
-  // }
 
   addComplaint() {
     const complaint : Complaint = { typeComplaint : this.typeComplaint, description: this.description , username : ''};
     this.dataService.addComplaint(complaint).subscribe((result) => {
       console.log('Complaint added successfully', result);
     });
-  }
+    this.sendComplaintemail();
+  };
 
-
+  sendComplaintemail () {
+    const email : Mail = {recipient : "dhiaeddine.benarab@esprit.tn", msgBody : this.description , subject : 'complaint about ' +  this.typeComplaint +' service' }
+    this.dataService.sendEmail(email).subscribe((result) =>
+    {
+      console.log('Eamil sent successfully',result);
+    })
+ this.description = '';
+ this.typeComplaint = "";
+  };
 
 
 }
