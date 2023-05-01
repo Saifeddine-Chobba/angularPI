@@ -75,6 +75,7 @@ import {MatSortModule} from "@angular/material/sort";
 import { EditPostComponent } from './front/forum/dialogs/edit-post/edit-post.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import { CommentsComponent } from './front/forum/dialogs/comments/comments.component';
+import {MatTabsModule} from "@angular/material/tabs";
 
 @NgModule({
   declarations: [
@@ -135,30 +136,31 @@ import { CommentsComponent } from './front/forum/dialogs/comments/comments.compo
     EditPostComponent,
     CommentsComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    GalleriaModule,
-    RatingModule,
-    FormsModule,
-    DialogModule,
-    ButtonModule,
-    BrowserAnimationsModule,
-    NoopAnimationsModule,
-    HttpClientModule,
-    MatCardModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatMenuModule,
-    MatIconModule,
-    MatToolbarModule,
-    MatTableModule,
-    MatSortModule,
-    MatDialogModule
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        GalleriaModule,
+        RatingModule,
+        FormsModule,
+        DialogModule,
+        ButtonModule,
+        BrowserAnimationsModule,
+        NoopAnimationsModule,
+        HttpClientModule,
+        MatCardModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatMenuModule,
+        MatIconModule,
+        MatToolbarModule,
+        MatTableModule,
+        MatSortModule,
+        MatDialogModule,
+        MatTabsModule
 
 
-  ],
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

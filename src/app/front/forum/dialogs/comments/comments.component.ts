@@ -13,13 +13,17 @@ export class CommentsComponent implements OnInit{
   AllComments:any
   newComment :Post=new Post(0,'',new Date(),false,false,null);
 
-  postId!: number;
-  constructor(private commentservice:CommentService,public dialogRef: MatDialogRef<CommentsComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: any) {}
+  post: Post=new Post(0,'',new Date(),false,false,null);
+  postId: number=0; // Add a property for postId
+
+
+  constructor(private commentservice:CommentService,
+              public dialogRef: MatDialogRef<CommentsComponent>,
+              @Inject(MAT_DIALOG_DATA) public data: { postId: number } ) {}
 
   ngOnInit(): void {
-    this.getComments(11);
-    this.postId=this.data.postId;
+    this.postId = this.data.postId; // Get the postId property from the data object
+    this.getComments(this.postId);
   }
 
 
@@ -29,10 +33,10 @@ export class CommentsComponent implements OnInit{
       this.AllComments=data;
     })
   }
-  addComment(idPost:number){
-    this.commentservice.addComment(this.newComment,1,idPost).subscribe(()=>{
+  addComment(){
+    this.commentservice.addComment(this.newComment,1,this.postId).subscribe(()=>{
       console.log("comment"+this.newComment.content+" added");
-      this.getComments(idPost)
+      this.getComments(this.postId)
     })
   }
 

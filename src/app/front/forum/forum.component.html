@@ -1,87 +1,159 @@
 <app-user-navbar></app-user-navbar>
-<app-forum-header></app-forum-header>
-<div id="divupper">
-  <mat-toolbar color="primary">
-    <mat-toolbar-row>
-      <span>My App</span>
-    </mat-toolbar-row>
-
-    <mat-toolbar-row>
-      <div class="example-button-row">
-        <button mat-raised-button color="primary">Sort by latest</button>
-        <button mat-raised-button color="warn">Most relevant</button>
-        <a mat-raised-button href="forum/myposts" target="_blank">My posts</a>
-      </div>
-    </mat-toolbar-row>
-
-    <mat-toolbar-row>
+<div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
+  <div class="container text-center py-5">
+    <h1 class="display-3 text-white mb-4 animated slideInDown">Welcome to Campside Forum</h1>
+    <a > you can connect with campers and ask for anythink about camping </a>
+    <div class="example-button-row">
+      <button mat-raised-button style="background-color :#EDDD5E !important ; color:#404A3D !important"  class="btn btn-secondary rounded-pill py-3 px-5 animated slideInRight">Sort by latest</button>
+      <button mat-raised-button style="background-color :#EDDD5E !important ; color:#404A3D !important" class="btn btn-secondary rounded-pill py-3 px-5 animated slideInRight">Most relevant</button>
+      <a mat-raised-button style="background-color :#EDDD5E !important ; color:#404A3D !important"  href="forum/myposts" target="_blank" class="btn btn-secondary rounded-pill py-3 px-5 animated slideInRight">My posts</a>
+    </div>
+    <div class="search-form">
       <mat-form-field class="field">
         <input matInput placeholder="Search">
         <button mat-button matSuffix>
           <mat-icon>search</mat-icon>
         </button>
       </mat-form-field>
-    </mat-toolbar-row>
-  </mat-toolbar>
+
+    </div>
+  </div>
 </div>
 
-
+<div _ngcontent-bxp-c12="" data-wow-delay="0.1s" class="text-center mx-auto wow fadeInUp" style="max-width: 500px; visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
+  <p _ngcontent-bxp-c12="" class="section-title bg-white text-center text-primary px-3">Campside Forum</p>
+  <h1 _ngcontent-bxp-c12="" class="mb-5">Choose Section from here </h1>
+</div>
 <div class="forum-page">
+  <mat-tab-group >
+    <mat-tab  label="All Posts"  >
+      <div class="example-small-box mat-elevation-z4">
+        <div class="users-div">
+          <p>In this solution, we're setting the background color of the Mat Menu content to transparent and removing the border and box-shadow. This should make the background of the Mat Menu content transparent, so you can see the images. We're also styling the images inside the Mat Menu content, giving them a centered display, a maximum height and width, padding, cursor, and transition. Finally, we're setting a hover effect with a scale transformation to make the images slightly larger when the mouse hovers over them.
 
-    <form>
-      <div class="flex-container" >
-        <div>
+            Make sure to include this CSS in your component's CSS file or in a global CSS file that's loaded in your Angular app.
 
-
-          <mat-form-field style="width: 120%;" appearance="outline" floatLabel="always">
-            <mat-label><b>Red-Label</b></mat-label>
-            <textarea [maxlength]="4096"  matInput placeholder="Add Your Post here :)"
-                      [(ngModel)]="newPost.content" name="content"  #myPost  ></textarea>
-          </mat-form-field>
+            I hope this solution works for you! Let me know if you have any other questions.</p>
         </div>
-        <div>
-          <button mat-raised-button color="primary" (click)="createPost()">Create Post</button>
+        <form _ngcontent-sui-c12="" novalidate="" class="ng-untouched ng-pristine ng-valid" style="display: flex;justify-content: center;widht:100%;">
+          <div _ngcontent-sui-c12="" class="row g-3"><div _ngcontent-sui-c12="" class="col-md-6">
+
+          </div>
+
+            <div _ngcontent-sui-c12="" class="col-12"><div _ngcontent-sui-c12="" class="form-floating">
+                <textarea [maxlength]="4096"  matInput placeholder="Add Your Post here :)"
+                          [(ngModel)]="newPost.content" name="content"  #myPost  id="message" class="form-control" style="width: 780px; height:150px">
+
+              </textarea>
+              <img src="assets/svg/send_FILL0_wght400_GRAD0_opsz48.svg" class="hover-image" (click)="createPost()">
+
+              <label _ngcontent-sui-c12="" for="message">Add Post</label>
+            </div>
+            </div>
+
+          </div>
+        </form>
+
+        <div  *ngFor="let post of posts" id="allposts">
+          <mat-card class="example-card">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+
+              <mat-card-title>Username </mat-card-title>
+              <mat-card-subtitle>FirstName + LastName</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <p>{{post.datePost | date:"yy-MM-dd, h:mm a" }}</p>
+              <b>{{post.content}}</b>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-button [matMenuTriggerFor]="menu">React</button>
+              <mat-menu #menu="matMenu"   >
+              <img src="assets/svg/like.svg" alt="My SVG Icon" (click)="addReact(likee,post.idPost,1)" class="hover-image">
+                <img src="assets/svg/love.svg" alt="My SVG Icon" (click)="addReact(love,post.idPost,1)" class="hover-image">
+                <img src="assets/svg/haha.svg" alt="My SVG Icon" (click)="addReact(haha,post.idPost,1)" class="hover-image">
+                <img src="assets/svg/wow.svg" alt="My SVG Icon"  (click)="addReact(woww,post.idPost,1)" class="hover-image">
+                <img src="assets/svg/sad.svg" alt="My SVG Icon" (click)="addReact(sad,post.idPost,1)" class="hover-image">
+                <img src="assets/svg/angry.svg" alt="My SVG Icon" (click)="addReact(angry,post.idPost,1)" class="hover-image">
+
+              </mat-menu>
+
+              <button mat-button (click)="openDialog(post)">Comment</button>
+
+            </mat-card-actions>
+
+          </mat-card>
+
+        </div>
+
+      </div>
+    </mat-tab>
+
+    <mat-tab *ngFor="let section of sections" label={{section.name}} >
+      <div class="example-small-box mat-elevation-z4">
+        <form _ngcontent-sui-c12="" novalidate="" class="ng-untouched ng-pristine ng-valid" style="display: flex;justify-content: center;widht:100%;">
+          <div _ngcontent-sui-c12="" class="row g-3"><div _ngcontent-sui-c12="" class="col-md-6">
+
+          </div>
+
+            <div _ngcontent-sui-c12="" class="col-12"><div _ngcontent-sui-c12="" class="form-floating">
+                <textarea [maxlength]="4096"  matInput placeholder="Add Your Post here :)"
+                          [(ngModel)]="newPost.content" name="content"  #myPost  id="" class="form-control" style="width: 780px; height:150px">
+
+              </textarea>
+              <img src="assets/svg/send_FILL0_wght400_GRAD0_opsz48.svg" class="hover-image" (click)="createPost()">
+
+              <label _ngcontent-sui-c12="" for="message">Add Post</label>
+            </div>
+            </div>
+
+          </div>
+        </form>
+
+
+        <div  *ngFor="let post of posts"  id="posts">
+          <div *ngIf="post.forumSection?.idForumSection == section.idForumSection">
+          <mat-card class="example-card">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+
+              <mat-card-title>Username </mat-card-title>
+              <mat-card-subtitle>FirstName + LastName</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <p>{{post.datePost | date:"yy-MM-dd, h:mm a" }}</p>
+              <b>{{post.content}}</b>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-button [matMenuTriggerFor]="menu">React</button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item>
+                  <img src="assets/svg/thumbs-up-solid.svg" alt="My SVG Icon" >
+                </button>
+                <button mat-menu-item>
+                  <img src="assets/svg/heart-solid.svg" alt="My SVG Icon" >
+                </button>
+                <button mat-menu-item><img src="assets/svg/facebook-wow-logo-svgrepo-com_2.svg" alt="My SVG Icon" ></button>
+                <button mat-menu-item> <img src="assets/svg/face-sad-tear-solid.svg" alt="My SVG Icon" ></button>
+                <button mat-menu-item><img src="assets/svg/face-angry-regular
+.svg" alt="My SVG Icon" ></button>
+
+                <button mat-menu-item><img src="assets/svg/facebook-haha-logo-svgrepo-com
+.svg" alt="My SVG Icon" ></button>
+
+              </mat-menu>
+              <button mat-button (click)="openDialog(post)">Comment</button>
+
+            </mat-card-actions>
+          </mat-card>
+
+        </div>
         </div>
       </div>
+    </mat-tab>
+  </mat-tab-group>
 
-    </form>
 
-  <div  *ngFor="let post of posts" id="posts">
-    <mat-card class="example-card">
-      <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-
-        <mat-card-title>Username </mat-card-title>
-        <mat-card-subtitle>FirstName + LastName</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-        <p>{{post.datePost | date:"yy-MM-dd, h:mm a" }}</p>
-        <b>{{post.content}}</b>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button [matMenuTriggerFor]="menu">React</button>
-        <mat-menu #menu="matMenu">
-          <button mat-menu-item>
-            <img src="assets/svg/thumbs-up-solid.svg" alt="My SVG Icon" >
-          </button>
-          <button mat-menu-item>
-            <img src="assets/svg/heart-solid.svg" alt="My SVG Icon" >
-          </button>
-          <button mat-menu-item><img src="assets/svg/facebook-wow-logo-svgrepo-com_2.svg" alt="My SVG Icon" ></button>
-          <button mat-menu-item> <img src="assets/svg/face-sad-tear-solid.svg" alt="My SVG Icon" ></button>
-          <button mat-menu-item><img src="assets/svg/face-angry-regular
-.svg" alt="My SVG Icon" ></button>
-
-          <button mat-menu-item><img src="assets/svg/facebook-haha-logo-svgrepo-com
-.svg" alt="My SVG Icon" ></button>
-
-        </mat-menu>
-        <button mat-button (click)="openDialog(post.id)">Comment</button>
-
-      </mat-card-actions>
-    </mat-card>
-
-  </div>
   <app-footer-front></app-footer-front>
 </div>
 

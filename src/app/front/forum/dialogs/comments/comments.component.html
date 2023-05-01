@@ -1,15 +1,16 @@
+<div class="comment-dialog">
 <h2 mat-dialog-title>Comments</h2>
-<mat-dialog-content class="mat-typography">
+<mat-dialog-content class="mat-typography" style="">
   <div>
 
 
-    <mat-form-field style="width: 80%;" appearance="outline" floatLabel="always">
+    <mat-form-field style="width: 80%; " appearance="outline" floatLabel="always">
 
-      <mat-label><b>Red-Label</b></mat-label>
+      <mat-label><b>Your Comment</b></mat-label>
       <textarea [maxlength]="4096"  matInput placeholder="Add Your Comment here :)"
                 [(ngModel)]="newComment.content" name="content"    ></textarea>
     </mat-form-field>
-    <img src="assets/svg/send_FILL0_wght400_GRAD0_opsz48.svg" class="hover-image" (click)="addComment(11)">
+    <img src="assets/svg/send_FILL0_wght400_GRAD0_opsz48.svg" class="hover-image" (click)="addComment()">
 
 
   </div>
@@ -32,3 +33,4 @@
 
 </mat-dialog-content>
 
+</div>

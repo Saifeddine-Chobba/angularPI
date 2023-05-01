@@ -34,8 +34,9 @@ export class ReactsService {
   let deleteReactUrl = this.baseReactURL + "/delete-reaction/" + idReact
     return this.httpClient.delete(deleteReactUrl, httpOptions)
   }
-  assignReactionToPost(reaction: Reaction, idUser: number, idPost: number){
-  let addReactionToPostUrl = this.baseReactURL + "/add-assing-reaction-topost/" + idUser + "/" + idPost
+  assignReactionToPost(reactiontype: ReactionTypeModel, idUser: number, idPost: number){
+    let reaction=new Reaction(0,reactiontype,idUser,idPost);
+  let addReactionToPostUrl = this.baseReactURL + "/add-assing-reaction-topost/"+idUser+"/"+idPost;
     return this.httpClient.post(addReactionToPostUrl,reaction);
   }
 }

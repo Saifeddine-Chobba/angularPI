@@ -20,6 +20,9 @@ export class PostsService {
 
     return this.httpClient.get<any>(environment.backendUrlPost+"/retrieve-posts-user/"+idUser);
   }
+  getPostsBySection(idSection:number):Observable<Post[]>{
+    return this.httpClient.get<Post[]>(environment.backendUrlPost+"/retrieve-posts-section/"+idSection);
+  }
 
   /*
   deletePost(idPost :number): any{
@@ -36,10 +39,22 @@ export class PostsService {
     const url=environment.backendUrlPost+"/delete-post/"+idPost;
     return this.httpClient.delete(url);
   }
+  sortPostsDate(idSection:number):Observable<any>{
+    return this.httpClient.get<any>(environment.backendUrlPost+"/SortPostsDate/"+idSection);
+  }
+
+  sortPostsReacts(idSection:number):Observable<any>{
+    return  this.httpClient.get<any>(environment.backendUrlPost+"/SortPostsReacts/"+idSection);
+  }
   editPost(post:Post){
 
 
     return this.httpClient.post(environment.backendUrlPost+"/update-post",post);
 
   }
+  SortPostsRelevent(){
+
+
+  }
+
 }

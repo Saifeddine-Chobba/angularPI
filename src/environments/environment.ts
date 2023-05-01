@@ -5,7 +5,9 @@
 export const environment = {
   production: false,
   backendUrlPost:"http://localhost:8089/campside/post",
-  backendUrlReact:"http://localhost:8089/campside/reaction"
+  backendUrlReact:"http://localhost:8089/campside/reaction",
+  backendUrlSection:"http://localhost:8089/campside/section"
+
 };
 
 /*

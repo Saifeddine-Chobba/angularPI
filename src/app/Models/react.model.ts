@@ -3,15 +3,16 @@ import {Post} from "./post";
 import {User} from "./user.model";
 
 export class Reaction{
+  idReaction:number;
    reactionType: ReactionTypeModel;
    idPost: number;
     idUser:number;
-  constructor(  idPost: number,
-                reactionType :ReactionTypeModel,
-                idUser: number) {
-    this.idUser= idUser;
+  constructor( idReaction:number,reactionType :ReactionTypeModel, idUser: number,idPost: number)
+  {
+    this.idReaction=idReaction;
     this.reactionType = reactionType;
-   this.idPost = idPost
+    this.idUser= idUser;
+    this.idPost = idPost
 
   }
   static create() {
