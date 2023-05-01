@@ -14,6 +14,7 @@ export class ShopDataService implements OnInit{
   public cart : Cart = new Cart();
   public products : Product[] = [];
   public amounts : number[] = [];
+  public method : string ;
 
   public totals : number[] = [];
   constructor(private userService : UserService,

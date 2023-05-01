@@ -27,6 +27,8 @@
             "styles": [
               "src/styles.scss",
               "src/assets/scss/style.scss",
+              "node_modules/@tomtom-international/web-sdk-maps/dist/maps.css",
+
               {
                 "input": "src/app/front.css",
                 "bundleName": "front",

@@ -33,9 +33,7 @@ export class UserActivityProfileComponent implements OnInit {
     console.log("Selected rating: " + this.selectedRating);
   }
 
-  showMap() {
-    this.map.visible = true;
-  }
+
 
   showBooking() {
     this.visibleBooking = true;

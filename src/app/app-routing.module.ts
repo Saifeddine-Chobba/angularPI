@@ -42,6 +42,8 @@ import {UserShopComponent} from "./front/user/user-shop/user-shop.component";
 import {UserComplaintsComponent} from "./front/user/user-complaints/user-complaints.component";
 import {CartComponent} from "./front/user/cart/cart.component";
 import {OrderDetailsComponent} from "./front/user/order-details/order-details.component";
+import {MapComponent} from "./front/common-component/map/map.component";
+import {OrderDeliveryLocationComponent} from "./front/user/order-delivery-location/order-delivery-location.component";
 
 
 
@@ -126,7 +128,8 @@ const routes: Routes = [
   //added
   {path: 'user/productprofile/:id' , component: UserProductProfileComponent},
   {path:'user/cart' , component: CartComponent},
-  {path: 'user/order/details' , component:OrderDetailsComponent}
+  {path: 'user/order/details' , component:OrderDetailsComponent},
+  {path: 'user/order/deliverylocation' , component:OrderDeliveryLocationComponent}
 
 ];
 

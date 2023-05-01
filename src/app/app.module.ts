@@ -88,6 +88,7 @@ import {CartComponent} from "./front/user/cart/cart.component";
 import {ToastModule} from "primeng/toast";
 import {OrderDetailsComponent} from "./front/user/order-details/order-details.component";
 import { RadioButtonModule } from 'primeng/radiobutton';
+import {OrderDeliveryLocationComponent} from "./front/user/order-delivery-location/order-delivery-location.component";
 
 
 
@@ -149,8 +150,11 @@ import { RadioButtonModule } from 'primeng/radiobutton';
     AccountComponent,
     MapComponent,
     ModalFrontComponent,
+    // added
     CartComponent,
     OrderDetailsComponent,
+    OrderDeliveryLocationComponent
+
 
 
 
@@ -170,6 +174,7 @@ import { RadioButtonModule } from 'primeng/radiobutton';
     DialogModule,
     ButtonModule,
     NoopAnimationsModule,
+    // added
     TagModule,
     ToastModule,
     RadioButtonModule

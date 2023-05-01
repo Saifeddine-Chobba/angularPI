@@ -1,10 +1,8 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {UserService} from "../../../services/user.service";
-import {ActivatedRoute} from "@angular/router";
-import {Cart} from "../../../models/cart";
-import {CartService} from "../../../services/cart.service";
+import {Component, OnInit} from '@angular/core';
+
+import { Router} from "@angular/router";
+
 import {ShopDataService} from "../../../services/shop-data.service";
-import {MapComponent} from "../../common-component/map/map.component";
 
 @Component({
   selector: 'app-order-details',
@@ -13,11 +11,12 @@ import {MapComponent} from "../../common-component/map/map.component";
 })
 export class OrderDetailsComponent implements OnInit{
 
-  @ViewChild(MapComponent) map !: MapComponent;
   data : ShopDataService;
-  method : String;
-  constructor(private cartService:CartService,
-              public shopDataService:ShopDataService
+  method : string;
+
+  visible : boolean = false;
+  constructor(public shopDataService:ShopDataService,
+              private router : Router
   ) {
   }
   ngOnInit(): void {
@@ -29,7 +28,15 @@ export class OrderDetailsComponent implements OnInit{
     return false;
   }
 
-  showMap() {
-    this.map.visible = true;
+
+  cancel(){
+    this.router.navigate(["/user/cart"])
   }
+
+  next(){
+    this.router.navigate(["/user/order/deliverylocation"]);
+    this.shopDataService.method = this.method;
+  }
+
+
 }

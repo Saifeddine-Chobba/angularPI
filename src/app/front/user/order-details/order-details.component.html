@@ -58,8 +58,6 @@
 <!--          config-->
           <div  class="containerConfig config-custom card-footer border-0 px-4 py-5"  style="background-color: #ffffff;"  >
 
-            <p class=" config-custom lead fw-normal mb-0" style="color: #007F4F;font-weight: bolder;font-size: 25px;" > Choose A Delivery Location </p>
-            <p-button (click)="showMap()" icon="pi pi-external-link" label="Open Map" styleClass="config-custom pbuttoncustom"></p-button>
 
             <p class="config-custom lead fw-normal mb-0" style="color: #007F4F;font-weight: bolder;font-size: 25px;" > Choose A Payment Method </p>
             <div class="radiobuttoncustom config-custom">
@@ -76,8 +74,8 @@
             </div>
 
             <div class="config-custom  ">
-              <p-button  styleClass="redbuttonconfig" label="Cancel Order"></p-button>
-              <p-button styleClass="pbuttoncustom " label="Create Order"></p-button>
+              <p-button  styleClass="redbuttonconfig" label="Cancel Order" (click)="cancel()"></p-button>
+              <p-button styleClass="pbuttoncustom " label="Create Order" (click)="next()"></p-button>
             </div>
 
           </div>
@@ -92,6 +90,8 @@
       </div>
     </div>
   </div>
+
+
 </section>
 <br><br><br><br>
 <br><br>
@@ -114,6 +114,10 @@
 <br><br>
 <br><br>
 
-<app-map [header]=" 'Location' "></app-map>
+
+
+
+
+
 
 <app-footer-front></app-footer-front>
