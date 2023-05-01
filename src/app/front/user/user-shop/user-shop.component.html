@@ -9,6 +9,39 @@
 </div>
 <!-- Page Header End -->
 
+<!-- Product Start -->
+<div class="container-xxl py-5">
+  <div class="container">
+
+    <div class="row gx-4">
+
+        <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.1s" *ngFor="let product of products">
+
+          <div *ngIf="product.archived == false">
+            <div class="product-item">
+              <div class="position-relative">
+                <img class="img-fluid" src="assets/img/banner.jpg" alt="">
+                <div class="product-overlay">
+                  <a class="btn btn-square btn-warning " (click)="goToProfile(product.idProduct)" style="width: 100px">see product</a>
+                </div>
+              </div>
+              <div class="text-center p-4">
+                <a class="d-block h5" >{{product.name}}</a>
+                <span class="text-primary me-1" *ngIf="product.discountPercent == 0 ">{{product.price + '$' }}</span>
+                <span class="text-primary me-1" *ngIf="product.discountPercent > 0 ">{{ product.price - (product.price*product.discountPercent/100) + '$'}}</span>
+                <span class="text-decoration-line-through" *ngIf="product.discountPercent > 0">{{product.price + '$' }}</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+
+    </div>
+  </div>
+</div>
+<!-- Product End -->
 
 
 <app-footer-front></app-footer-front>

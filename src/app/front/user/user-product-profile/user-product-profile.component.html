@@ -9,5 +9,68 @@
 </div>
 <!-- Page Header End -->
 
+<div class="container" >
+  <div class="grid product">
+    <div class="column-xs-12 column-md-7">
+      <div class="product-gallery">
+        <div class="product-image">
+          <img class="active" src="https://source.unsplash.com/W1yjvf5idqA">
+        </div>
+        <ul class="image-list">
+          <li class="image-item"><img src="https://source.unsplash.com/W1yjvf5idqA" ></li>
+          <li class="image-item"><img src="https://source.unsplash.com/VgbUxvW3gS4"></li>
+          <li class="image-item"><img src="https://source.unsplash.com/5WbYFH0kf_8"></li>
+        </ul>
+      </div>
+    </div>
+    <div class="column-xs-12 column-md-5">
+      <h1>{{product.name}}</h1>
+      <div class="description" style="line-height: 50px">
+        <span >{{product.description}}</span>
 
+        <div  *ngIf="product.discountPercent == 0">
+          <h4 style="display: inline">Price: </h4> <span style="font-size: 20px">{{product.price + '$'}}</span> <br>
+        </div>
+
+        <div *ngIf="product.discountPercent > 0">
+          <h4 style="display: inline">Price: </h4>
+          <span style="font-size: 20px">{{product.price - (product.price * product.discountPercent/100) + '$' }}
+            <p-tag severity="success" [value]="'-' + product.discountPercent + '%' "></p-tag>
+        </span> <br>
+        </div>
+
+        <div>
+          <h4 style="display: inline">Category: </h4>
+          <span><p-tag severity="info" [value]="'' + product.category"></p-tag></span>
+        </div>
+
+
+<!--        <div >-->
+<!--          <div *ngIf="product.available">-->
+<!--            <span><p-tag severity="success" value ="This Product is Currently Available From Our Suppliers" styleClass="availability-profile"></p-tag></span>-->
+<!--          </div>-->
+<!--          <div *ngIf="product.available == false">-->
+<!--            <span><p-tag severity="danger" value="This Product is Currently Unavailable From Our Suppliers" styleClass="availability-profile"></p-tag></span>-->
+<!--          </div>-->
+<!--        </div>-->
+<br>
+        <div class="quantity-selector" *ngIf="product.available">
+          <h4 style="display: inline">Quantity:  </h4>
+          <span style="font-size: 20px">
+            <button (click)="decrementQuantity()">-</button>
+            <input type="number" [(ngModel)]="quantity" min="1" placeholder="1" disabled>
+            <button (click)="incrementQuantity()">+</button>
+          </span>
+        </div>
+
+
+        <div>
+          <button type="button" pButton pRipple (click)="addToCart(product.idProduct,quantity)"
+                  label="Add To Cart" class="p-button-success" class="add-to-cart" ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p-toast></p-toast>
 <app-footer-front></app-footer-front>

@@ -1,0 +1,29 @@
+:host ::ng-deep
+.availability-supply {
+  font-size: 1rem;
+}
+
+:host ::ng-deep .radiobuttoncustom {
+  display: flex;
+  flex-direction: row;
+
+}
+
+:host ::ng-deep .config-custom{
+  margin-top: 1.2em;
+}
+
+:host ::ng-deep .containerConfig {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+:host ::ng-deep .pbuttoncustom {
+  background-color: #007F4F;
+}
+:host ::ng-deep .redbuttonconfig {
+  background-color: darkred;
+  margin-right: 50px;
+}

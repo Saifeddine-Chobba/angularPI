@@ -40,6 +40,8 @@ import {
 } from "./front/user/user-reservation-profile/user-reservation-profile.component";
 import {UserShopComponent} from "./front/user/user-shop/user-shop.component";
 import {UserComplaintsComponent} from "./front/user/user-complaints/user-complaints.component";
+import {CartComponent} from "./front/user/cart/cart.component";
+import {OrderDetailsComponent} from "./front/user/order-details/order-details.component";
 
 
 
@@ -120,7 +122,11 @@ const routes: Routes = [
   {path : 'user/product' , component: UserProductProfileComponent},
   {path : 'user/reservationprofile' , component: UserReservationProfileComponent},
   {path: 'user/shop' , component: UserShopComponent},
-  {path : 'user/complaints' , component: UserComplaintsComponent}
+  {path : 'user/complaints' , component: UserComplaintsComponent},
+  //added
+  {path: 'user/productprofile/:id' , component: UserProductProfileComponent},
+  {path:'user/cart' , component: CartComponent},
+  {path: 'user/order/details' , component:OrderDetailsComponent}
 
 ];
 

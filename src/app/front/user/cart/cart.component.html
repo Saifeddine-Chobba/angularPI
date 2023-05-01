@@ -1,0 +1,73 @@
+
+<app-user-navbar></app-user-navbar>
+
+<!-- Page Header Start -->
+<div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
+  <div class="container text-center py-5">
+    <h1 class="display-3 text-white mb-4 animated slideInDown">Your Cart</h1>
+  </div>
+</div>
+<!-- Page Header End -->
+
+<h1>Shopping Cart</h1>
+
+<div class="shopping-cart" style="width: 90%">
+
+  <div class="column-labels">
+    <label class="product-image">Image</label>
+    <label class="product-details">Product</label>
+    <label class="product-price">Price</label>
+    <label class="product-quantity">Quantity</label>
+    <label class="product-removal">Remove</label>
+    <label class="product-line-price">Total</label>
+  </div>
+
+<div id="container-prods" *ngIf="products.length > 0">
+        <div [id]=" 'prod'+i "   class="product" *ngFor="let product of products;let i = index" >
+          <div class="product-image">
+            <img src="https://s.cdpn.io/3/large-NutroNaturalChoiceAdultLambMealandRiceDryDogFood.png">
+          </div>
+          <div class="product-details">
+            <div class="product-title"><h4>{{product.name}}</h4></div>
+          </div>
+          <div  class="product-price" style="font-size: 23px" >
+            <span [id]=" 'price'+i ">
+            {{product.price-(product.price*product.discountPercent/100)}}
+            </span>
+          </div>
+          <div class="product-quantity" *ngIf="product.available">
+
+            <span style="font-size: 20px">
+                  <button (click)="decrementQuantity(product,i)">-</button>
+                  <input id="inputQuant{{i}}" type="number"  min="1" [value]="amounts.at(products.indexOf(product))" style="width: 60px" disabled>
+                  <button (click)="incrementQuantity(product,i)">+</button>
+            </span>
+          </div>
+
+
+          <div class="product-removal" >
+            <button style="font-size: 20px" class="remove-product" (click)="removeProductFromCart(product.idProduct , i)">
+              Remove
+            </button>
+          </div>
+          <div [id]=" 'total'+i " class="product-line-price" style="font-size: 23px" >
+            {{totals[i]}}
+          </div>
+        </div>
+
+        <div class="totals">
+          <div class="totals-item totals-item-total">
+            <label style="font-size: 32px;font-weight: bold;color: #1e2125" >Grand Total</label>
+            <div [id]=" 'totalAll' " class="totals-value" id="cart-total" style="font-size: 30px" >{{total}}</div>
+          </div>
+        </div>
+
+        <button class="checkout"  (click)="createOrder()">Order</button>
+
+      </div>
+
+</div>
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+
+<app-footer-front></app-footer-front>

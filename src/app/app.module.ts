@@ -83,6 +83,12 @@ import {DialogModule} from "primeng/dialog";
 import {ButtonModule} from "primeng/button";
 import {RatingModule} from "primeng/rating";
 import {ModalFrontComponent} from "./front/common-component/modal/modal.component";
+import {TagModule} from "primeng/tag";
+import {CartComponent} from "./front/user/cart/cart.component";
+import {ToastModule} from "primeng/toast";
+import {OrderDetailsComponent} from "./front/user/order-details/order-details.component";
+import { RadioButtonModule } from 'primeng/radiobutton';
+
 
 
 
@@ -142,7 +148,10 @@ import {ModalFrontComponent} from "./front/common-component/modal/modal.componen
     OwnerComplaintProfileComponent,
     AccountComponent,
     MapComponent,
-    ModalFrontComponent
+    ModalFrontComponent,
+    CartComponent,
+    OrderDetailsComponent,
+
 
 
   ],
@@ -160,7 +169,10 @@ import {ModalFrontComponent} from "./front/common-component/modal/modal.componen
     RatingModule,
     DialogModule,
     ButtonModule,
-    NoopAnimationsModule
+    NoopAnimationsModule,
+    TagModule,
+    ToastModule,
+    RadioButtonModule
   ],
   exports: [TablerIconsModule],
   bootstrap: [AppComponent],

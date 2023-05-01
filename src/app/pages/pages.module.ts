@@ -27,6 +27,8 @@ import {
 import {ButtonModule} from "primeng/button";
 import {RatingModule} from "primeng/rating";
 import {TagModule} from "primeng/tag";
+import {ProductsComponent} from "./Shop/products/products.component";
+import {OrdersComponent} from "./Shop/orders/orders.component";
 
 @NgModule({
   declarations: [
@@ -49,6 +51,8 @@ import {TagModule} from "primeng/tag";
     AllReservationsComponent,
     ReservationProfileComponent,
     //shopmanager
+    ProductsComponent,
+    OrdersComponent,
     //forum manager
   ],
   imports: [
