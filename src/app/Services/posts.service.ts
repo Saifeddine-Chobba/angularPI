@@ -52,9 +52,9 @@ export class PostsService {
     return this.httpClient.post(environment.backendUrlPost+"/update-post",post);
 
   }
-  SortPostsRelevent(){
 
-
+  PostScore(idPost:number){
+    return this.httpClient.get(environment.backendUrlPost+"/post-score/"+idPost);
   }
 
 }

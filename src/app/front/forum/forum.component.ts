@@ -9,6 +9,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {CommentsComponent} from "./dialogs/comments/comments.component";
 import {SectionService} from "../../Services/section.service";
 import {ForumSection} from "../../Models/section.model";
+import {User} from "../../Models/user.model";
 
 @Component({
   selector: 'app-forum',
@@ -35,6 +36,19 @@ export class ForumComponent implements OnInit{
   sad:ReactionTypeModel=ReactionTypeModel.Sad;
   haha:ReactionTypeModel=ReactionTypeModel.Haha;
   angry:ReactionTypeModel=ReactionTypeModel.Angry;
+   users:any[] = [
+    { avatar: 'assets/Avatars/bechir.jpg', username: ' BERIMN.7', status: 'connected' },
+    { avatar: 'assets/Avatars/khlil.jpg', username: ' Khlil_17', status: 'connected' },
+    { avatar: 'assets/Avatars/tlili.jpg', username: ' Tlili_11', status: 'connected' },
+    { avatar: 'assets/Avatars/dali.jpg', username: ' Med.ali', status: 'disconnected' },
+    { avatar: 'assets/Avatars/wiss.jpg', username: ' WISS.23', status: 'disconnected' },
+    { avatar: 'assets/Avatars/Amir.jpg', username: ' AMir.hajji', status: 'connected' },
+    { avatar: 'assets/Avatars/bechir.jpg', username: ' ALI.SAdid', status: 'connected' },
+    { avatar: 'assets/Avatars/bechir.jpg', username: ' Jhon', status: 'disconnected' },
+    { avatar: 'assets/Avatars/bechir.jpg', username: ' Naruto', status: 'connected' },
+    { avatar: 'assets/Avatars/bechir.jpg', username: ' Ippo', status: 'connected' }
+
+  ];
 
 
 
@@ -74,10 +88,11 @@ export class ForumComponent implements OnInit{
       this.postsOfSection = posts;
     });
   }
-  createPost() {
-    this.postservice.addPost(this.newPost,1,1).subscribe((response) => {
+  createPost(idUser:number,idSection:number) {
+    this.postservice.addPost(this.newPost,idUser,idSection).subscribe((response) => {
       console.log('Post created:', response);
       this.newPost = new Post(0, '', new Date(), false, false, null); // Reset the form
+      this.getAllPosts();
     });
   }
   deletPost(idPost : number){

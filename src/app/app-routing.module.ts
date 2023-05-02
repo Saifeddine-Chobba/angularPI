@@ -87,10 +87,7 @@ const routes: Routes = [
 
 
   //admin
-  {path: 'back/admin/dashboard' , component: DashboardComponent}
-
-
-];
+  {path: 'back/admin/dashboard' , component: DashboardComponent}];
 @NgModule({
   imports: [
     CommonModule, // Import the CommonModule here

@@ -20,32 +20,42 @@
   </div>
 </div>
 
+
 <div _ngcontent-bxp-c12="" data-wow-delay="0.1s" class="text-center mx-auto wow fadeInUp" style="max-width: 500px; visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
   <p _ngcontent-bxp-c12="" class="section-title bg-white text-center text-primary px-3">Campside Forum</p>
   <h1 _ngcontent-bxp-c12="" class="mb-5">Choose Section from here </h1>
 </div>
+
+
 <div class="forum-page">
+
   <mat-tab-group >
     <mat-tab  label="All Posts"  >
+      <div class="user-list">
+        <h3>Forum Members:</h3>
+        <ul id="user-names">
+          <div *ngFor="let user of users" style="margin-bottom: 15px">
+            <img [src]="user.avatar" [alt]="user.username"class="avatar">
+            <span>{{user.username}}</span>
+            <span style="margin-left: 5px; color:{{user.status ? 'green' : 'red'}}">
+          {{user.status ? 'connected' : 'disconnected'}}
+  </span>
+          </div>
+        </ul>
+      </div>
+
       <div class="example-small-box mat-elevation-z4">
-        <div class="users-div">
-          <p>In this solution, we're setting the background color of the Mat Menu content to transparent and removing the border and box-shadow. This should make the background of the Mat Menu content transparent, so you can see the images. We're also styling the images inside the Mat Menu content, giving them a centered display, a maximum height and width, padding, cursor, and transition. Finally, we're setting a hover effect with a scale transformation to make the images slightly larger when the mouse hovers over them.
-
-            Make sure to include this CSS in your component's CSS file or in a global CSS file that's loaded in your Angular app.
-
-            I hope this solution works for you! Let me know if you have any other questions.</p>
-        </div>
         <form _ngcontent-sui-c12="" novalidate="" class="ng-untouched ng-pristine ng-valid" style="display: flex;justify-content: center;widht:100%;">
           <div _ngcontent-sui-c12="" class="row g-3"><div _ngcontent-sui-c12="" class="col-md-6">
 
           </div>
 
             <div _ngcontent-sui-c12="" class="col-12"><div _ngcontent-sui-c12="" class="form-floating">
-                <textarea [maxlength]="4096"  matInput placeholder="Add Your Post here :)"
+                <textarea   matInput placeholder="Add Your Post here :)"
                           [(ngModel)]="newPost.content" name="content"  #myPost  id="message" class="form-control" style="width: 780px; height:150px">
 
               </textarea>
-              <img src="assets/svg/send_FILL0_wght400_GRAD0_opsz48.svg" class="hover-image" (click)="createPost()">
+              <img src="assets/svg/send_FILL0_wght400_GRAD0_opsz48.svg" class="hover-image" (click)="createPost(1,1)">
 
               <label _ngcontent-sui-c12="" for="message">Add Post</label>
             </div>
@@ -55,14 +65,14 @@
         </form>
 
         <div  *ngFor="let post of posts" id="allposts">
-          <mat-card class="example-card">
+          <mat-card class="example-card" style="background-color: #F2F2F2;">
             <mat-card-header>
               <div mat-card-avatar class="example-header-image"></div>
 
-              <mat-card-title>Username </mat-card-title>
+              <mat-card-title >Username </mat-card-title>
               <mat-card-subtitle>FirstName + LastName</mat-card-subtitle>
             </mat-card-header>
-            <mat-card-content>
+            <mat-card-content style="font-family: 'Lato', sans-serif; ; font-size:14px !important;">
               <p>{{post.datePost | date:"yy-MM-dd, h:mm a" }}</p>
               <b>{{post.content}}</b>
             </mat-card-content>
@@ -75,21 +85,27 @@
                 <img src="assets/svg/wow.svg" alt="My SVG Icon"  (click)="addReact(woww,post.idPost,1)" class="hover-image">
                 <img src="assets/svg/sad.svg" alt="My SVG Icon" (click)="addReact(sad,post.idPost,1)" class="hover-image">
                 <img src="assets/svg/angry.svg" alt="My SVG Icon" (click)="addReact(angry,post.idPost,1)" class="hover-image">
-
               </mat-menu>
-
               <button mat-button (click)="openDialog(post)">Comment</button>
-
             </mat-card-actions>
-
           </mat-card>
-
         </div>
-
       </div>
     </mat-tab>
-
     <mat-tab *ngFor="let section of sections" label={{section.name}} >
+      <div class="user-list">
+        <h3>Forum Members:</h3>
+        <ul id="user-names">
+          <div *ngFor="let user of users" style="margin-bottom: 15px">
+            <img [src]="user.avatar" [alt]="user.username"class="avatar">
+            <span>{{user.username}}</span>
+            <span style="margin-left: 5px; color: {{user.status ? 'green' : 'red'}}">
+          {{user.status ? 'connected' : 'disconnected'}}
+  </span>
+          </div>
+        </ul>
+      </div>
+
       <div class="example-small-box mat-elevation-z4">
         <form _ngcontent-sui-c12="" novalidate="" class="ng-untouched ng-pristine ng-valid" style="display: flex;justify-content: center;widht:100%;">
           <div _ngcontent-sui-c12="" class="row g-3"><div _ngcontent-sui-c12="" class="col-md-6">
@@ -101,7 +117,7 @@
                           [(ngModel)]="newPost.content" name="content"  #myPost  id="" class="form-control" style="width: 780px; height:150px">
 
               </textarea>
-              <img src="assets/svg/send_FILL0_wght400_GRAD0_opsz48.svg" class="hover-image" (click)="createPost()">
+              <img src="assets/svg/send_FILL0_wght400_GRAD0_opsz48.svg" class="hover-image" (click)="createPost(1,section.idForumSection)">
 
               <label _ngcontent-sui-c12="" for="message">Add Post</label>
             </div>
@@ -109,53 +125,40 @@
 
           </div>
         </form>
-
-
         <div  *ngFor="let post of posts"  id="posts">
-          <div *ngIf="post.forumSection?.idForumSection == section.idForumSection">
-          <mat-card class="example-card">
+          <div *ngIf="post.forumSection?.idForumSection == section.idForumSection" >
+          <mat-card class="example-card" style="background-color: #F2F2F2;">
             <mat-card-header>
               <div mat-card-avatar class="example-header-image"></div>
 
               <mat-card-title>Username </mat-card-title>
               <mat-card-subtitle>FirstName + LastName</mat-card-subtitle>
             </mat-card-header>
-            <mat-card-content>
+            <mat-card-content style="font-family: 'Lato', sans-serif; ; font-size:14px !important;">
               <p>{{post.datePost | date:"yy-MM-dd, h:mm a" }}</p>
               <b>{{post.content}}</b>
             </mat-card-content>
             <mat-card-actions>
               <button mat-button [matMenuTriggerFor]="menu">React</button>
-              <mat-menu #menu="matMenu">
-                <button mat-menu-item>
-                  <img src="assets/svg/thumbs-up-solid.svg" alt="My SVG Icon" >
-                </button>
-                <button mat-menu-item>
-                  <img src="assets/svg/heart-solid.svg" alt="My SVG Icon" >
-                </button>
-                <button mat-menu-item><img src="assets/svg/facebook-wow-logo-svgrepo-com_2.svg" alt="My SVG Icon" ></button>
-                <button mat-menu-item> <img src="assets/svg/face-sad-tear-solid.svg" alt="My SVG Icon" ></button>
-                <button mat-menu-item><img src="assets/svg/face-angry-regular
-.svg" alt="My SVG Icon" ></button>
-
-                <button mat-menu-item><img src="assets/svg/facebook-haha-logo-svgrepo-com
-.svg" alt="My SVG Icon" ></button>
-
+              <mat-menu #menu="matMenu"   >
+                <img src="assets/svg/like.svg" alt="My SVG Icon" (click)="addReact(likee,post.idPost,1)" class="hover-image">
+                <img src="assets/svg/love.svg" alt="My SVG Icon" (click)="addReact(love,post.idPost,1)" class="hover-image">
+                <img src="assets/svg/haha.svg" alt="My SVG Icon" (click)="addReact(haha,post.idPost,1)" class="hover-image">
+                <img src="assets/svg/wow.svg" alt="My SVG Icon"  (click)="addReact(woww,post.idPost,1)" class="hover-image">
+                <img src="assets/svg/sad.svg" alt="My SVG Icon" (click)="addReact(sad,post.idPost,1)" class="hover-image">
+                <img src="assets/svg/angry.svg" alt="My SVG Icon" (click)="addReact(angry,post.idPost,1)" class="hover-image">
               </mat-menu>
               <button mat-button (click)="openDialog(post)">Comment</button>
-
             </mat-card-actions>
           </mat-card>
-
         </div>
         </div>
       </div>
     </mat-tab>
   </mat-tab-group>
-
-
   <app-footer-front></app-footer-front>
 </div>
+
 
 
 
