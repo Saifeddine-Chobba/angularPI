@@ -1,0 +1,15 @@
+<div class="container">
+  <form class="form-container">
+    <label class="labeldeposit" for="name" >Deposit Name:</label>
+    <input type="text" id="name" name="name" [(ngModel)]="name" required>
+  </form>
+  <label class="labeldeposit" for="map">Choose Deposit Location</label>
+  <div id="map" class="map">
+    <!-- Insert your TomTom map here -->
+  </div>
+  <button id="addSelect">Add a Product To This Deposit</button>
+  <div id="rowsContainer">
+  </div>
+  <br><br><br>
+  <button (click)="addDeposit()" type="submit">Add Deposit</button>
+</div>

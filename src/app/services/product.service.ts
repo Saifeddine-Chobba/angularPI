@@ -47,11 +47,9 @@ export class ProductService {
       );
   }
 
-  deleteProduct(product: Product): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/delete`, { body: product })
-      .pipe(
-        catchError(this.handleError)
-      );
+  deleteProduct(id: number): Observable<void> {
+    const url = `${this.baseUrl}/delete?id=${id}`;
+    return this.http.delete<void>(url);
   }
 
   makeDiscount(product: Product, discountPercent: number): Observable<Product> {

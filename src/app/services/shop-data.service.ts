@@ -3,6 +3,8 @@ import {UserService} from "./user.service";
 import {Cart} from "../models/cart";
 import {CartService} from "./cart.service";
 import {Product} from "../models/product";
+import {paymentMethod} from "../models/paymentMethod";
+import {Ord} from "../models/order";
 
 @Injectable({
   providedIn: 'root'
@@ -14,9 +16,10 @@ export class ShopDataService implements OnInit{
   public cart : Cart = new Cart();
   public products : Product[] = [];
   public amounts : number[] = [];
-  public method : string ;
+  public method : paymentMethod ;
 
   public totals : number[] = [];
+  public order :Ord = new Ord();
   constructor(private userService : UserService,
               private cartService: CartService,
               ){

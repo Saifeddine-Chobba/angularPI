@@ -74,17 +74,12 @@ export const navItems: NavItem[] = [
   {
     displayName: 'Delivery Personnel',
     iconName: 'aperture',
-    route: '/dashboard/delivery',
+    route: '/dashboard/personnel',
   },
   {
     displayName: 'Deposits',
     iconName: 'aperture',
     route: '/dashboard/deposits',
-  },
-  {
-    displayName: 'Orders',
-    iconName: 'aperture',
-    route: '/dashboard/orders',
   },
   {
     navCap: 'Forum Management',

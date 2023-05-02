@@ -1,6 +1,10 @@
 import {AfterViewInit, Component} from '@angular/core';
 import {MapService} from "../../../services/map.service";
 import * as tt from "@tomtom-international/web-sdk-maps";
+import {ShopDataService} from "../../../services/shop-data.service";
+import {Ord} from "../../../models/order";
+import {LocationService} from "../../../services/location.service";
+import {OrderService} from "../../../services/order.service";
 
 @Component({
   selector: 'app-order-delivery-location',
@@ -12,7 +16,10 @@ export class OrderDeliveryLocationComponent implements AfterViewInit{
   latitude:number ;
 
   map : tt.Map;
-  constructor(private mapService:MapService) {
+  constructor(private mapService:MapService,
+              private shopService:ShopDataService,
+              private locationService:LocationService,
+              private orderService:OrderService) {
   }
   ngAfterViewInit(): void {
     this.map = tt.map({
@@ -30,8 +37,26 @@ export class OrderDeliveryLocationComponent implements AfterViewInit{
   }
 
   createOrderObject(){
-    
+    this.locationService.reverseGeocode(this.longitude, this.latitude).subscribe((location) => {
+      console.log(location);
+      this.shopService.order.deliveryLocation = location;
+      this.pushOrder(this.shopService.order);
+    }, (error) => {
+      console.log(error);
+    });
+
   }
+
+  pushOrder(order : Ord): void {
+    this.orderService.createOrder(order).subscribe((order) => {
+      // handle successful creation of order here
+      console.log("succes push")
+    }, (error) => {
+      // handle error here
+      console.log(error)
+    });
+  }
+
 
 
 }

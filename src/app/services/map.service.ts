@@ -57,5 +57,9 @@ export class MapService {
     marker.setPopup(popup).togglePopup();
   }
 
+  public setMarker(longitude:number, latitude:number,map:tt.Map) : tt.Marker {
+      return  new tt.Marker().setLngLat([longitude, latitude]).addTo(map);
+  }
+
 
 }

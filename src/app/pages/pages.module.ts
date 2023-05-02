@@ -29,6 +29,12 @@ import {RatingModule} from "primeng/rating";
 import {TagModule} from "primeng/tag";
 import {ProductsComponent} from "./Shop/products/products.component";
 import {OrdersComponent} from "./Shop/orders/orders.component";
+import {DepositsComponent} from "./Shop/deposits/deposits.component";
+import {PersonnelComponent} from "./Shop/personnel/personnel.component";
+import {SuppliersComponent} from "./Shop/suppliers/suppliers.component";
+import {AddDepositComponent} from "./Shop/add-deposit/add-deposit.component";
+import {ProductProfileBackComponent} from "./Shop/product-profile-back/product-profile-back.component";
+import {AddProductComponent} from "./Shop/add-product/add-product.component";
 
 @NgModule({
   declarations: [
@@ -53,6 +59,12 @@ import {OrdersComponent} from "./Shop/orders/orders.component";
     //shopmanager
     ProductsComponent,
     OrdersComponent,
+    DepositsComponent,
+    PersonnelComponent,
+    SuppliersComponent,
+    AddDepositComponent,
+    ProductProfileBackComponent,
+    AddProductComponent,
     //forum manager
   ],
   imports: [

@@ -1,26 +1,28 @@
-
 <div class="containertab">
-  <p-table [value]="products" [tableStyle]="{'min-width': '60rem'}" styleClass="tab" >
+  <table class="tab" style="min-width: 60rem">
+    <thead class="tabheader">
+    <tr>
+      <th class="tabheader__item">Name</th>
+      <th class="tabheader__item">Picture</th>
+      <th class="tabheader__item">Price</th>
+      <th class="tabheader__item">archived</th>
+      <th class="tabheader__item">Actions</th>
+    </tr>
+    </thead>
+    <tbody class="tabcontent">
+    <tr class="tabrow" *ngFor="let product of products;let i = index">
+      <td class="tabdata">{{product.name}}</td>
+      <td class="tabdata"><img src=""></td>
+      <td class="tabdata">{{product.price}}</td>
+      <td class="tabdata">{{product.archived}}</td>
+      <td class="tabdata">
+        <button (click)="viewProduct(product.idProduct)">view product</button>
+        <button (click)="deleteProduct(product.idProduct)">Delete product</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <button (click)="goToAddPage()">Add product</button>
 
-    <ng-template pTemplate="header" class="tabheader">
-      <tr>
-        <th class="tabheader__item">Name</th>
-        <th class="tabheader__item">Image</th>
-        <th class="tabheader__item">Price</th>
-        <th class="tabheader__item">Category</th>
-        <th class="tabheader__item">Reviews</th>
-        <th class="tabheader__item">Status</th>
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-product class="tabcontent">
-      <tr class="tabrow">
-        <td class="tabdata">dfg</td>
-        <td class="tabdata"><img [src]="'https://primefaces.org/cdn/primeng/images/demo/product/1'"  width="100" class="shadow-4" /></td>
-        <td class="tabdata">dfg</td>
-        <td class="tabdata">dfg</td>
-        <td class="tabdata">dfg</td>
-        <td class="tabdata">dfgfdg</td>
-      </tr>
-    </ng-template>
-  </p-table>
 </div>

@@ -1,0 +1,26 @@
+<div class="containertab">
+  <table class="tab" style="min-width: 60rem">
+    <thead class="tabheader">
+    <tr>
+      <th class="tabheader__item">Name</th>
+      <th class="tabheader__item">Town</th>
+      <th class="tabheader__item">State</th>
+      <th class="tabheader__item">Actions</th>
+    </tr>
+    </thead>
+    <tbody class="tabcontent">
+    <tr class="tabrow" *ngFor="let deposit of deposits;let i = index">
+      <td class="tabdata">{{deposit.name}}</td>
+      <td class="tabdata">{{deposit.location.town}}</td>
+      <td class="tabdata">{{deposit.location.state}}</td>
+      <td class="tabdata">
+        <button (click)="viewDeposit(i)">view deposit</button>
+        <button (click)="deleteDeposit(deposit.id)">Delete Deposit</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <button (click)="goToAddPage()">Add Deposit</button>
+
+</div>
