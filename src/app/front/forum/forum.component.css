@@ -62,7 +62,7 @@ img{
   display: table-cell;
   max-width: 600px;
   position: relative; /* make the div position relative */
-  left: 350px; /* move the div 50 pixels to the right */
+  left: 450px; /* move the div 50 pixels to the right */
   top: 0px; /* move the div 20 pixels down */}
 
 .example-button-row .mat-mdc-button-base {

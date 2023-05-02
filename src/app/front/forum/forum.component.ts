@@ -81,7 +81,7 @@ export class ForumComponent implements OnInit{
 
   getAllPosts():any{
     this.postservice.getposts().subscribe((Posts: any[]) => {
-      this.posts = this.sortByDate(Posts)})
+      this.posts = Posts})
   }
   getPostsBySection(idSection: number): void {
     this.postservice.getPostsBySection(idSection).subscribe((posts: Post[]) => {
@@ -115,6 +115,26 @@ export class ForumComponent implements OnInit{
       return new Date(b.datePost).getTime() - new Date(a.datePost).getTime();
     });
   }
+  PostScore(idPost:number){
+    return this.postservice.PostScore(idPost);
+
+  }
+  sortPostsByScore(posts: Post[]) {
+    posts.sort((post1, post2) => {
+      console.log("score works !!")
+      let score1 = this.PostScore(post1.idPost);
+      let score2 = this.PostScore(post2.idPost);
+      // @ts-ignore
+      return score2 - score1;
+    });
+    this.posts=posts;
+    this.getAllPosts()
+  }
+  sortPostReacts(){
+
+  }
+
+
 
 
 
